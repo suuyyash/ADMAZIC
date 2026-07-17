@@ -1224,11 +1224,21 @@ body.premium-funnel {
   }
   
   /* Buttons */
-  .btn-luxury { 
+  .btn-luxury:not(#main-header .btn-luxury) { 
     padding: 14px 20px !important; 
     font-size: 0.95rem !important; 
     width: 100% !important; 
     text-align: center !important; 
+  }
+  
+  /* Header Mobile Overrides */
+  #main-header { padding: 12px 0 !important; }
+  #main-header img { width: 120px !important; }
+  #main-header .btn-luxury { 
+    padding: 10px 16px !important; 
+    font-size: 0.75rem !important; 
+    width: auto !important; 
+    margin-left: 15px !important;
   }
 
   /* Specific Sections */

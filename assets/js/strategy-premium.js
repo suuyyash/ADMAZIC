@@ -400,7 +400,7 @@ function submitFinalForm() {
   formData.append('_captcha', 'false');
   
   // Send data via AJAX using FormSubmit
-  fetch('https://formsubmit.co/ajax/nasrinjariwala176@gmail.com', {
+  fetch('https://formsubmit.co/ajax/0268ba27ded67a4b85be605b435c44a2', {
     method: 'POST',
     body: formData
   })
