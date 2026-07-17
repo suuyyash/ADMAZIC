@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmed | ADMAZIC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/strategy-premium.css?v=4">
+  <style>
+    .thank-you-layout {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background: #fbfbfe;
+    }
+    .confirmation-card {
+      background: #ffffff;
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 45px 40px;
+      max-width: 580px;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    }
+    .success-ring {
+      width: 72px;
+      height: 72px;
+      background: rgba(168, 85, 247, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: #8b5cf6;
+      font-size: 2rem;
+    }
+    .session-details-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 30px 0;
+      text-align: left;
+    }
+    .detail-row {
+      display: flex;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .detail-row:last-child {
+      margin-bottom: 0;
+    }
+    .detail-label {
+      width: 120px;
+      font-weight: 700;
+      color: #64748b;
+    }
+    .detail-value {
+      flex: 1;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+  </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2241092950059385');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2241092950059385&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body class="premium-funnel">
+  <div class="thank-you-layout">
+    <div class="confirmation-card">
+      <div class="success-ring">
+        <i class="fas fa-calendar-check"></i>
+      </div>
+      <h1 class="text-gradient-purple" style="font-size: 2.2rem; font-weight: 800; margin-bottom: 8px;">Booking Confirmed, <span id="display-name-header"></span>!</h1>
+      <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.5;">Your 1-on-1 Scale-Up Strategy Room slot is officially locked.</p>
+      
+      <div class="session-details-box">
+        <h4 style="margin-bottom: 18px; font-weight: 800; font-size: 0.95rem; color: var(--text-primary); border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; letter-spacing: 0.5px;">CONFIRMED DETAILS</h4>
+        
+        <div class="detail-row">
+          <div class="detail-label">Host</div>
+          <div class="detail-value">Suyash Pandey (ADMAZIC)</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Date</div>
+          <div class="detail-value" id="display-date">Loading...</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Time</div>
+          <div class="detail-value" id="display-time">Loading...</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Attendee</div>
+          <div class="detail-value" id="display-attendee">Loading...</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Platform</div>
+          <div class="detail-value"><i class="fas fa-video" style="color: #3b82f6; margin-right: 6px;"></i> Zoom (Link sent to email)</div>
+        </div>
+      </div>
+      
+      <div class="time-badge" style="margin-bottom: 30px; display: inline-flex; align-items: center; justify-content: center; width: auto; padding: 8px 16px; background: rgba(239, 68, 68, 0.08); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.15); font-size: 0.85rem; border-radius: 6px; font-weight: 700; gap: 6px; animation: pulse 2s infinite;">
+        <i class="fas fa-exclamation-circle"></i> Slot Held for 15 Minutes
+      </div>
+      
+      <div>
+        <a href="index.html" class="btn-luxury btn-glowing-scale" style="display: inline-block; width: auto; padding: 16px 36px; text-decoration: none;">Return To Homepage <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Extract details from localStorage
+    const name = localStorage.getItem('booking_name') || 'Valued Guest';
+    const email = localStorage.getItem('booking_email') || '';
+    const dateVal = localStorage.getItem('booking_date');
+    const timeVal = localStorage.getItem('booking_time') || 'Selected Slot';
+    
+    // Format Date beautifully
+    let formattedDate = 'Selected Date';
+    if (dateVal) {
+      const dateObj = new Date(dateVal);
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      formattedDate = dateObj.toLocaleDateString('en-US', options);
+    }
+    
+
+    document.getElementById('display-date').innerText = formattedDate;
+    document.getElementById('display-time').innerText = timeVal;
+    document.getElementById('display-attendee').innerText = `${name} (${email})`;
+    
+    // Set personalized name in header
+    const firstName = name.split(' ')[0];
+    document.getElementById('display-name-header').innerText = firstName;
+
+  </script>
+</body>
+</html>

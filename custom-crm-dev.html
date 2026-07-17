@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADMAZIC - Custom CRM Development. Escape Salesforce/HubSpot seat fees. Build a bespoke CRM tailored to your sales process with zero monthly subscriptions.">
+  <title>Custom CRM Development & Engineering | ADMAZIC</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Unique styling for Custom CRM Dev page to differentiate from previous pages */
+    .crm-panel-container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      padding: 80px 0;
+      align-items: center;
+    }
+    .crm-panel-container.reverse {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+    .crm-visual-mockup {
+      background: var(--bg-secondary);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      font-family: inherit;
+    }
+    .crm-kanban-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .crm-kanban-column {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px dashed var(--glass-border);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .crm-kanban-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .crm-metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .crm-metric-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+    .crm-metric-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-blue);
+      margin-top: 5px;
+    }
+    .crm-user-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 8px;
+    }
+    .crm-avatar {
+      width: 36px;
+      height: 36px;
+      background: var(--accent-blue);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .crm-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    .crm-badge.success { background: rgba(16, 185, 129, 0.1); color: #10B981; }
+    .crm-badge.warning { background: rgba(245, 158, 11, 0.1); color: #F59E0B; }
+    .crm-badge.info { background: rgba(31, 83, 151, 0.1); color: var(--accent-blue); }
+
+    @media (max-width: 768px) {
+      .crm-panel-container, .crm-panel-container.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+    }
+  </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2241092950059385');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2241092950059385&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body style="background-color: var(--bg-primary);">
+
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto;">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="dropdown mega-dropdown">
+            <a href="#" class="nav-link active">Services <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-left: 5px;"></i></a>
+            <div class="mega-menu-content">
+              <div class="mega-menu-tabs">
+                <button class="mega-tab-btn" data-tab="revenue-funnels"><i class="fas fa-funnel-dollar"></i> Revenue & Sales Funnels</button>
+                <button class="mega-tab-btn active" data-tab="tech-automations"><i class="fas fa-laptop-code"></i> Technology & Automations</button>
+              </div>
+              <div class="mega-menu-panes">
+                <div class="mega-menu-pane" id="revenue-funnels">
+                  <div class="mega-menu-grid">
+                    <a href="performance-marketing.html" class=""><i class="fas fa-chart-line"></i> Performance Marketing</a>
+                    <a href="google-ads.html" class=""><i class="fab fa-google"></i> Google Ads Ecosystem</a>
+                    <a href="meta-ads.html" class=""><i class="fab fa-facebook-f"></i> Meta Ads & Social</a>
+                    <a href="cro.html" class=""><i class="fas fa-percentage"></i> Conversion Rate Optimization</a>
+                    <a href="sales-funnels.html" class=""><i class="fas fa-filter"></i> B2B Sales Funnels</a>
+                    <a href="retention-marketing.html" class=""><i class="fas fa-envelope-open-text"></i> Retention Marketing</a>
+                    <a href="ecommerce.html" class=""><i class="fas fa-shopping-bag"></i> E-commerce</a>
+                    <a href="marketplace.html" class=""><i class="fas fa-store"></i> Marketplace</a>
+                    <a href="seo.html" class=""><i class="fas fa-search"></i> SEO</a>
+                    <a href="linkedin-ads.html" class=""><i class="fab fa-linkedin"></i> LinkedIn Ads</a>
+                  </div>
+                </div>
+                <div class="mega-menu-pane active" id="tech-automations">
+                  <div class="mega-menu-grid">
+                    <a href="custom-web-dev.html" class=""><i class="fas fa-code"></i> Custom Web Dev</a>
+                    <a href="custom-crm-dev.html" class="active"><i class="fas fa-users-cog"></i> Custom CRM Dev</a>
+                    <a href="wordpress.html" class=""><i class="fab fa-wordpress"></i> WordPress</a>
+                    <a href="shopify.html" class=""><i class="fab fa-shopify"></i> Shopify</a>
+                    <a href="squarespace.html" class=""><i class="fas fa-cubes"></i> Squarespace</a>
+                    <a href="automations.html" class=""><i class="fas fa-robot"></i> Automations</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="portfolio.html" class="nav-link">Work</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="desktop-only" style="margin-left: 40px; margin-right: 15px; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 30px;"><a href="tel:+917861910348" style="color: var(--text-primary); font-weight: 700; display: flex; align-items: center; gap: 8px; text-decoration: none;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> +91 78619 10348</a></li>
+          <li class="desktop-only"><a href="free-audit.html" class="btn btn-primary" style="background-color: var(--accent-blue); color: #fff; padding: 12px 24px; font-weight: 700;">I Want to Grow <i class="fas fa-arrow-right btn-icon"></i></a></li>
+          <li class="mobile-only" style="width: 100%;"><a href="free-audit.html" class="btn btn-primary mobile-cta-btn" style="background-color: var(--accent-blue); color: #fff; width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;">I Want to Grow <i class="fas fa-arrow-right"></i></a></li>
+          <li class="mobile-only" style="width: 100%; margin-top: 10px;"><a href="tel:+917861910348" class="btn btn-secondary mobile-cta-btn" style="width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt"></i> Call: +91 78619 10348</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Section 1: Hero Section -->
+  <section class="hero bg-grid" style="position: relative; padding-top: 180px; padding-bottom: 120px;">
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <div class="reveal text-reveal-up" style="margin-bottom: 20px;">
+        <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue); border: 1px solid rgba(31,83,151,0.2);">Proprietary Sales CRM Engineering</span>
+      </div>
+      <h1 class="hero-title reveal text-reveal-up delay-1" style="font-size: 4.5rem; font-weight: 800; max-width: 950px; margin: 0 auto 24px auto; color: var(--text-primary); line-height: 1.1;">
+        Own Your CRM. <br><span class="text-highlight">Stop Renting Customer Data.</span>
+      </h1>
+      <p class="hero-description reveal text-reveal-up delay-2" style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 40px auto; color: var(--text-secondary); line-height: 1.6;">
+        Salesforce and HubSpot seat fees eat your profit margin as you scale. We build bespoke custom CRMs tailored entirely to your workflow for a single one-time development fee.
+      </p>
+      
+      <div class="hero-buttons reveal text-reveal-up delay-3" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Build My Custom CRM <i class="fas fa-users-cog btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: The CRM Subscription Tax (Agitation) -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="crm-panel-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.2);">The SaaS Tax</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">The Subscription Trap: $150/Seat is Bleeding Your Bottom Line</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            HubSpot and Salesforce lock you into massive multi-year contracts, charge you premium seat licenses for basic operations, and restrict API limits. When your sales team expands, you are penalized with higher monthly bills. We break this dependency cycle: one-time build cost, lifetime code ownership, and unlimited users.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Calculate My CRM Savings <i class="fas fa-calculator"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;"><i class="fas fa-exclamation-triangle" style="color: #F59E0B;"></i> SaaS Subscription Overhead</h4>
+            <div class="crm-metric-grid" style="margin-top: 15px;">
+              <div class="crm-metric-card">
+                <span style="color: var(--text-secondary); font-size: 0.85rem;">Seat Costs (50 Users)</span>
+                <div class="crm-metric-val" style="color: #EF4444;">$90,000/yr</div>
+              </div>
+              <div class="crm-metric-card">
+                <span style="color: var(--text-secondary); font-size: 0.85rem;">Custom Build Cost</span>
+                <div class="crm-metric-val" style="color: #10B981;">One-Time</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Tailored Sales Pipelines -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="crm-panel-container reverse">
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+              <h4 style="color: var(--text-primary); margin:0;">Enterprise Pipeline</h4>
+              <span class="crm-badge success">Active</span>
+            </div>
+            <div class="crm-kanban-board">
+              <div class="crm-kanban-column">
+                <span style="font-size: 0.75rem; font-weight: bold; color: var(--text-secondary);">Demo Scheduled</span>
+                <div class="crm-kanban-card" style="margin-top: 8px;">Tesla Project <br><strong>$45k</strong></div>
+                <div class="crm-kanban-card">Apple Inc. <br><strong>$120k</strong></div>
+              </div>
+              <div class="crm-kanban-column">
+                <span style="font-size: 0.75rem; font-weight: bold; color: var(--text-secondary);">Proposal Sent</span>
+                <div class="crm-kanban-card" style="margin-top: 8px;">Microsoft <br><strong>$250k</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Bespoke Workflows</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Sales Pipelines Built for Your Exact Sales Logic</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Stop trying to squeeze your unique sales stages into standard CRM templates. We customize interactive drag-and-drop deal pipelines, configure value scoring systems, and build conversion alerts designed specifically to accelerate your team's sales cycles.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Design My Sales Pipeline <i class="fas fa-project-diagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Frictionless Lead Routing -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="crm-panel-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Velocity Engine</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Automated Round-Robin Lead Routing</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Every minute a new lead waits, their conversion probability drops by 10%. We build smart assignment engines that route leads based on geographical region, product line interest, deal value tiers, or rep availability.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Automate Lead Assignment <i class="fas fa-route"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;"><i class="fas fa-code-branch" style="color: var(--accent-blue);"></i> Routing Workflow</h4>
+            <div class="crm-user-profile" style="margin-top:15px;">
+              <div class="crm-avatar">L</div>
+              <div>
+                <span style="font-size:0.75rem; color:var(--text-secondary);">Incoming Lead</span>
+                <div style="font-size:0.9rem; font-weight:bold; color:var(--text-primary);">ACME Corp ($50k)</div>
+              </div>
+            </div>
+            <div style="text-align: center; margin: 8px 0; color: var(--text-secondary);"><i class="fas fa-arrow-down"></i></div>
+            <div class="crm-user-profile">
+              <div class="crm-avatar" style="background: #10B981;">R</div>
+              <div>
+                <span style="font-size:0.75rem; color:var(--text-secondary);">Routed to Representative</span>
+                <div style="font-size:0.9rem; font-weight:bold; color:var(--text-primary);">Rep #2 (Available)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Unified Customer Timeline -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="crm-panel-container reverse">
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <h4 style="color: var(--text-primary); margin-bottom: 15px;">Interaction History</h4>
+            <div class="crm-user-profile">
+              <div class="crm-avatar"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span style="font-size:0.75rem; color:var(--text-secondary);">Email Opened - 2h ago</span>
+                <div style="font-size:0.85rem; color:var(--text-primary);">Contract Proposal reviewed.</div>
+              </div>
+            </div>
+            <div class="crm-user-profile">
+              <div class="crm-avatar" style="background:#F59E0B;"><i class="fas fa-phone"></i></div>
+              <div>
+                <span style="font-size:0.75rem; color:var(--text-secondary);">Call Completed - 4h ago</span>
+                <div style="font-size:0.85rem; color:var(--text-primary);">12 min call with VP of Sales.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">360 View</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Unified Customer Timeline & Interaction Logging</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Stop hunting through threads. We build unified 360-degree timeline panels logging every call, email, chat message, and conversion touchpoint automatically. Give your SDRs the context they need to close deals instantly.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Consolidate Customer Profiles <i class="fas fa-id-card"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Custom Automation Triggers -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="crm-panel-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Task Automation</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Automated Trigger Actions & Task Engine</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Eliminate administrative manual work. When a rep updates a deal to "Contract Sent," the CRM automatically generates follow-up reminders, builds legal agreements, and notifies accounting teams over Slack.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Setup My Automations <i class="fas fa-robot"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;"><i class="fas fa-bolt" style="color: #F59E0B;"></i> Trigger Blueprint</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary); margin-top: 15px;">
+              <span style="color:var(--accent-blue);">IF</span> Deal Status == <span style="color:#10B981;">"Closed Won"</span>
+              <br><span style="color:var(--accent-blue);">THEN</span>
+              <br>&nbsp;&nbsp;- Generate Stripe Invoice
+              <br>&nbsp;&nbsp;- Post to Slack channel #sales-wins
+              <br>&nbsp;&nbsp;- Create Onboarding Ticket in Jira
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Omnichannel Communication Center -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="crm-panel-container reverse">
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <h4 style="color: var(--text-primary); margin-bottom: 15px;">Direct Channels</h4>
+            <div style="display:flex; justify-content:space-around; margin-top: 20px;">
+              <div style="text-align:center;"><i class="fas fa-phone-alt" style="font-size: 2rem; color: #10B981;"></i><br><span style="font-size:0.75rem; color:var(--text-secondary);">VoIP Calling</span></div>
+              <div style="text-align:center;"><i class="fab fa-whatsapp" style="font-size: 2rem; color: #25D366;"></i><br><span style="font-size:0.75rem; color:var(--text-secondary);">WhatsApp</span></div>
+              <div style="text-align:center;"><i class="fas fa-envelope" style="font-size: 2rem; color: var(--accent-blue);"></i><br><span style="font-size:0.75rem; color:var(--text-secondary);">Email Engine</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Communications</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">VoIP, Email, & WhatsApp Communications</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Reps shouldn't jump tabs to talk to clients. We build VoIP integrations, WhatsApp business APIs, and SMTP/IMAP email channels directly inside the CRM dashboard. Click to call, record conversations, and review replies in one place.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Connect My Communications <i class="fas fa-comments"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Enterprise-Grade Reporting & BI -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="crm-panel-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Business Intelligence</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Custom BI Reporting & Activity Dashboards</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Stop fighting with rigid SaaS reporting panels. We create custom sales velocity charts, active forecasting metrics, and team output trackers. Get clear, exportable reports detailing customer acquisition metrics.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Generate Custom Reports <i class="fas fa-chart-line"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Monthly Revenue Velocity</h4>
+            <div style="height: 100px; background: linear-gradient(180deg, rgba(31,83,151,0.2) 0%, rgba(31,83,151,0) 100%); border-bottom: 2px solid var(--accent-blue); position: relative; margin-top: 15px;">
+              <span style="position:absolute; bottom: 8px; right: 10px; font-size:0.75rem; font-weight:bold; color:var(--text-primary);">+28% Growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Third-Party Integration Sync -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="crm-panel-container reverse">
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <h4 style="color: var(--text-primary); margin-bottom: 15px;">CRM Integrations</h4>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div class="crm-user-profile" style="margin:0;"><i class="fab fa-stripe" style="font-size:1.5rem; color:#635BFF; width:30px;"></i> <span>Stripe Payments</span></div>
+              <div class="crm-user-profile" style="margin:0;"><i class="fas fa-file-invoice-dollar" style="font-size:1.5rem; color:#2CA01C; width:30px;"></i> <span>QuickBooks Accounting</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">System Sync</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Two-Way Integration: Accounting & Billing</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            A CRM is only as good as the tools it talks to. We build secure API links connecting your customer database to accounting platforms, transactional billing tools, shipping systems, and corporate calendars.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Sync My Tools <i class="fas fa-sync-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 10: On-Premise Hosting & Security -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="crm-panel-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.2);">Data Sovereignty</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Own Your Database Asset: AWS & Private Hosting</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            SaaS providers lease your data back to you. If you cancel, your data is gone. We set up your custom CRM on your private AWS or server system. You own the code, the database structure, and the records forever. Perfect for strict security auditing.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Secure My Data Assets <i class="fas fa-lock"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="crm-visual-mockup" style="text-align:center; padding: 40px 20px;">
+            <i class="fas fa-shield-alt" style="font-size:3.5rem; color: #10B981; margin-bottom:15px;"></i>
+            <h4 style="color: var(--text-primary); margin:0;">100% Data Ownership</h4>
+            <span style="font-size:0.85rem; color:var(--text-secondary);">Hosted securely inside your AWS cloud</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 11: Mobile CRM Architecture -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="crm-panel-container reverse">
+        <div class="reveal">
+          <div class="crm-visual-mockup" style="max-width: 280px; margin: 0 auto; border-radius: 30px; border: 8px solid #334155;">
+            <div style="height: 20px; background:#334155; border-radius: 10px 10px 0 0; display:flex; justify-content:center; align-items:center;">
+              <span style="width: 40px; height: 4px; background:#1e293b; border-radius: 2px;"></span>
+            </div>
+            <div style="padding:15px; background:var(--bg-primary);">
+              <h5 style="color:var(--text-primary); margin:0;">Rep Dashboard</h5>
+              <div class="crm-kanban-card" style="margin-top: 15px; font-size: 0.75rem;">Call scheduled: Apple<br><strong>10:30 AM</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Mobile Sales</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Mobile CRM UI for Field Representatives</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Give your field reps a fast mobile web app interface. They can log leads, update transaction details, dial phone contacts, and review customer files on the road, with full offline data syncing built-in.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Review Mobile Layout <i class="fas fa-mobile-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 12: In-CRM Document & Proposal Builders -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="crm-panel-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Contract Engine</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Custom Proposal Creators & E-Signatures</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Stop copying customer details manually into PDFs. We build custom template builders that extract customer names, products, and prices straight from the pipeline to generate invoices and legal documents with built-in e-signature signing links.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Build My Proposal Generator <i class="fas fa-file-contract"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <h4 style="color: var(--text-primary); margin-bottom: 15px;">Document Template</h4>
+            <div style="border: 1px solid var(--glass-border); border-radius: 6px; padding: 15px; font-size: 0.8rem; background: var(--bg-primary);">
+              <strong>AGREEMENT FOR SERVICES</strong>
+              <br>Client Name: <span style="color:var(--accent-blue); font-weight:bold;">{contact.company_name}</span>
+              <br>Total Cost: <span style="color:var(--accent-blue); font-weight:bold;">{deal.value}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 13: Customer Portal Extensions -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="crm-panel-container reverse">
+        <div class="reveal">
+          <div class="crm-visual-mockup" style="padding: 30px 20px; text-align: center;">
+            <i class="fas fa-door-open" style="font-size: 3rem; color: var(--accent-blue); margin-bottom: 12px;"></i>
+            <h4 style="color: var(--text-primary); margin:0;">Client Portal</h4>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Tickets, invoices, and messaging links</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Client Portal</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Interactive Customer Portals</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Provide clients with their own login panel. We build client support extensions where customers can upload project files, check active ticket progress, view project milestones, and make card payments that sync directly to their CRM record.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Extend My Customer Portal <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 14: Data Migration Engine -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="crm-panel-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Data Transfer</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Zero Data-Loss Migration Engine</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Worried about leaving your old system? We engineer migration scripts that extract your customer records, transaction logs, pipeline stages, and history from HubSpot/Salesforce and parse them cleanly into your custom database structure with zero downtime.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Start CRM Data Migration <i class="fas fa-database"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="crm-visual-mockup">
+            <h4 style="color: var(--text-primary); margin-bottom: 15px;">Migration Pipeline</h4>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size: 0.8rem; background: var(--bg-primary); border: 1px solid var(--glass-border); border-radius: 6px; padding:15px;">
+              <span>Salesforce API</span>
+              <span style="color:#10B981;"><i class="fas fa-long-arrow-alt-right"></i> Parse Script <i class="fas fa-long-arrow-alt-right"></i></span>
+              <span>New Database</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 15: The One-Time Cost Commitment -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container text-center" style="max-width: 800px;">
+      <div class="reveal">
+        <i class="fas fa-handshake" style="font-size: 3.5rem; color: var(--accent-blue); margin-bottom: 20px;"></i>
+        <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2;">Bespoke Codebase. Single Development Fee.</h2>
+        <p style="color: var(--text-secondary); font-size: 1.25rem; line-height: 1.7; margin-bottom: 30px;">
+          Build a solid digital asset for your company instead of paying monthly software rent. We charge a flat development rate to architect, build, and deploy your proprietary CRM system. Unlimited users. Unlimited data fields. Lifetime code ownership.
+        </p>
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Request CRM Development Quote <i class="fas fa-arrow-right btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer (Reused) -->
+  <footer class="footer" style="background-color: #0F172A; color: #F8FAFC;">
+    <div class="container footer-grid">
+      <div class="footer-col-logo">
+        <a href="index.html" class="logo footer-logo">
+          <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto; filter: brightness(0) invert(1);">
+        </a>
+        <p class="footer-desc" style="color: #94A3B8;">A growth performance company scaling e-commerce, D2C, B2B, and hospitality brands by 15x using high-velocity metrics marketing.</p>
+        <div class="footer-contact-details" style="color: #94A3B8; font-size: 0.9rem; margin: 15px 0; display: flex; flex-direction: column; gap: 8px;">
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-envelope" style="color: var(--accent-blue);"></i> <a href="mailto:admazicusa@gmail.com" style="color: inherit; text-decoration: none; transition: color 0.2s;">admazicusa@gmail.com</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> <a href="tel:+917861910348" style="color: inherit; text-decoration: none; transition: color 0.2s;">+91 78619 10348</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-map-marker-alt" style="color: var(--accent-blue);"></i> Ahmedabad, India</span>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/Admazicusa" class="social-link" aria-label="Facebook" style="color: #94A3B8;"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/admazicusa" class="social-link" aria-label="Instagram" style="color: #94A3B8;"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/admazic/" class="social-link" aria-label="LinkedIn" style="color: #94A3B8;"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Revenue Funnels</h3>
+        <ul class="footer-links">
+          <li><a href="performance-marketing.html" class="footer-link" style="color: #94A3B8;">Performance Marketing</a></li>
+          <li><a href="google-ads.html" class="footer-link" style="color: #94A3B8;">Google Ads Ecosystem</a></li>
+          <li><a href="meta-ads.html" class="footer-link" style="color: #94A3B8;">Meta Ads & Social</a></li>
+          <li><a href="linkedin-ads.html" class="footer-link" style="color: #94A3B8;">LinkedIn Ads</a></li>
+          <li><a href="cro.html" class="footer-link" style="color: #94A3B8;">Conversion Rate Optimization</a></li>
+          <li><a href="seo.html" class="footer-link" style="color: #94A3B8;">SEO Mastery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Tech & Automations</h3>
+        <ul class="footer-links">
+          <li><a href="custom-web-dev.html" class="footer-link" style="color: #94A3B8;">Custom Web Dev</a></li>
+          <li><a href="custom-crm-dev.html" class="footer-link" style="color: #94A3B8;">Custom CRM Dev</a></li>
+          <li><a href="wordpress.html" class="footer-link" style="color: #94A3B8;">WordPress Dev</a></li>
+          <li><a href="shopify.html" class="footer-link" style="color: #94A3B8;">Shopify Dev</a></li>
+          <li><a href="squarespace.html" class="footer-link" style="color: #94A3B8;">Squarespace Dev</a></li>
+          <li><a href="automations.html" class="footer-link" style="color: #94A3B8;">Workflow Automations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Company</h3>
+        <ul class="footer-links">
+          <li><a href="about.html" class="footer-link" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="portfolio.html" class="footer-link" style="color: #94A3B8;">Case Studies</a></li>
+          <li><a href="careers.html" class="footer-link" style="color: #94A3B8;">Careers</a></li>
+          <li><a href="contact.html" class="footer-link" style="color: #94A3B8;">Contact Us</a></li>
+          </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Growth Insights</h3>
+        <p class="footer-newsletter-text" style="color: #94A3B8;">Receive data-backed growth strategies directly to your inbox weekly.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your business email" required aria-label="Business Email" style="background: #1E293B; border-color: #334155; color: #fff;">
+          <button type="submit" aria-label="Subscribe" style="background: var(--accent-blue);"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom" style="border-top-color: #1E293B; color: #64748B;">
+      <p>&copy; 2026 ADMAZIC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Privacy Policy</a>
+        <a href="terms.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Terms of Service</a>
+        <a href="disclaimer.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Disclaimer</a>
+        <a href="refund.html" class="footer-link" style="color: #64748B;">Refund Policy</a>
+      </div>
+    </div>
+  
+    <p style="margin-top: 20px; font-size: 0.75rem; max-width: 900px; margin-left: auto; margin-right: auto; opacity: 0.7; line-height: 1.6; color: #64748B; text-align: center;">This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+  </footer>
+
+  <script src="assets/js/main.js?v=1.5"></script>
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADMAZIC - Custom Web Development & Software Engineering. Next.js, React, Node.js, and enterprise-grade cloud architectures built for speed and scale.">
+  <title>Custom Web Development & Engineering | ADMAZIC</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .tech-badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .tech-badge {
+      background: var(--bg-secondary);
+      border: 1px solid var(--glass-border);
+      color: var(--text-primary);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tech-badge i {
+      color: var(--accent-blue);
+    }
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .split-section.reverse {
+      direction: rtl;
+    }
+    .split-section.reverse .split-content {
+      direction: ltr;
+    }
+    .code-mockup {
+      background: #0F172A;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      padding: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+      color: #94A3B8;
+      box-shadow: var(--shadow-lg);
+      direction: ltr;
+    }
+    .code-header {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 15px;
+    }
+    .code-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .code-dot.red { background: #EF4444; }
+    .code-dot.yellow { background: #F59E0B; }
+    .code-dot.green { background: #10B981; }
+    .code-line {
+      margin-bottom: 6px;
+    }
+    .code-keyword { color: #F472B6; }
+    .code-string { color: #34D399; }
+    .code-function { color: #60A5FA; }
+    .code-comment { color: #64748B; }
+
+    @media (max-width: 768px) {
+      .split-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+      .split-section.reverse {
+        direction: ltr;
+      }
+      .tech-badge-container {
+        justify-content: center;
+      }
+    }
+  </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2241092950059385');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2241092950059385&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body style="background-color: var(--bg-primary);">
+
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto;">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="dropdown mega-dropdown">
+            <a href="#" class="nav-link active">Services <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-left: 5px;"></i></a>
+            <div class="mega-menu-content">
+              <div class="mega-menu-tabs">
+                <button class="mega-tab-btn" data-tab="revenue-funnels"><i class="fas fa-funnel-dollar"></i> Revenue & Sales Funnels</button>
+                <button class="mega-tab-btn active" data-tab="tech-automations"><i class="fas fa-laptop-code"></i> Technology & Automations</button>
+              </div>
+              <div class="mega-menu-panes">
+                <div class="mega-menu-pane" id="revenue-funnels">
+                  <div class="mega-menu-grid">
+                    <a href="performance-marketing.html" class=""><i class="fas fa-chart-line"></i> Performance Marketing</a>
+                    <a href="google-ads.html" class=""><i class="fab fa-google"></i> Google Ads Ecosystem</a>
+                    <a href="meta-ads.html" class=""><i class="fab fa-facebook-f"></i> Meta Ads & Social</a>
+                    <a href="cro.html" class=""><i class="fas fa-percentage"></i> Conversion Rate Optimization</a>
+                    <a href="sales-funnels.html" class=""><i class="fas fa-filter"></i> B2B Sales Funnels</a>
+                    <a href="retention-marketing.html" class=""><i class="fas fa-envelope-open-text"></i> Retention Marketing</a>
+                    <a href="ecommerce.html" class=""><i class="fas fa-shopping-bag"></i> E-commerce</a>
+                    <a href="marketplace.html" class=""><i class="fas fa-store"></i> Marketplace</a>
+                    <a href="seo.html" class=""><i class="fas fa-search"></i> SEO</a>
+                    <a href="linkedin-ads.html" class=""><i class="fab fa-linkedin"></i> LinkedIn Ads</a>
+                  </div>
+                </div>
+                <div class="mega-menu-pane active" id="tech-automations">
+                  <div class="mega-menu-grid">
+                    <a href="custom-web-dev.html" class="active"><i class="fas fa-code"></i> Custom Web Dev</a>
+                    <a href="custom-crm-dev.html" class=""><i class="fas fa-users-cog"></i> Custom CRM Dev</a>
+                    <a href="wordpress.html" class=""><i class="fab fa-wordpress"></i> WordPress</a>
+                    <a href="shopify.html" class=""><i class="fab fa-shopify"></i> Shopify</a>
+                    <a href="squarespace.html" class=""><i class="fas fa-cubes"></i> Squarespace</a>
+                    <a href="automations.html" class=""><i class="fas fa-robot"></i> Automations</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="portfolio.html" class="nav-link">Work</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="desktop-only" style="margin-left: 40px; margin-right: 15px; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 30px;"><a href="tel:+917861910348" style="color: var(--text-primary); font-weight: 700; display: flex; align-items: center; gap: 8px; text-decoration: none;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> +91 78619 10348</a></li>
+          <li class="desktop-only"><a href="free-audit.html" class="btn btn-primary" style="background-color: var(--accent-blue); color: #fff; padding: 12px 24px; font-weight: 700;">I Want to Grow <i class="fas fa-arrow-right btn-icon"></i></a></li>
+          <li class="mobile-only" style="width: 100%;"><a href="free-audit.html" class="btn btn-primary mobile-cta-btn" style="background-color: var(--accent-blue); color: #fff; width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;">I Want to Grow <i class="fas fa-arrow-right"></i></a></li>
+          <li class="mobile-only" style="width: 100%; margin-top: 10px;"><a href="tel:+917861910348" class="btn btn-secondary mobile-cta-btn" style="width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt"></i> Call: +91 78619 10348</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Section 1: Hero Section -->
+  <section class="hero bg-grid" style="position: relative; padding-top: 180px; padding-bottom: 120px;">
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <div class="reveal text-reveal-up" style="margin-bottom: 20px;">
+        <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue); border: 1px solid rgba(31,83,151,0.2);">Next-Gen Web Architecture</span>
+      </div>
+      <h1 class="hero-title reveal text-reveal-up delay-1" style="font-size: 4.5rem; font-weight: 800; max-width: 950px; margin: 0 auto 24px auto; color: var(--text-primary); line-height: 1.1;">
+        No Templates. <br>Just <span class="text-highlight">Clean, High-Performance Code.</span>
+      </h1>
+      <p class="hero-description reveal text-reveal-up delay-2" style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 40px auto; color: var(--text-secondary); line-height: 1.6;">
+        We engineer bespoke web applications, headless commerce systems, and robust APIs tailored specifically for speed, search optimization, and enterprise scalability.
+      </p>
+      
+      <div class="tech-badge-container reveal delay-2">
+        <div class="tech-badge"><i class="fab fa-react"></i> React / Next.js</div>
+        <div class="tech-badge"><i class="fab fa-node-js"></i> Node.js</div>
+        <div class="tech-badge"><i class="fas fa-database"></i> PostgreSQL</div>
+        <div class="tech-badge"><i class="fab fa-aws"></i> AWS Cloud</div>
+        <div class="tech-badge"><i class="fas fa-network-wired"></i> GraphQL & REST APIs</div>
+      </div>
+
+      <div class="hero-buttons reveal text-reveal-up delay-3" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Start My Custom Build <i class="fas fa-code btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: The Template Trap (Agitation) -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.2);">The Core Problem</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">The Template Trap: Why Off-The-Shelf Builders Fail You</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            WordPress themes, Wix, and Squarespace are fine for small blogs, but they crumble under real commercial load. They suffer from massive JavaScript bloat, slow server response times, and plugins that conflict with each other. The result? Poor conversion rates, low lighthouse scores, and search engines burying you.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Escape Theme Bloat <i class="fas fa-sign-out-alt"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// Average Site Builder Performance Analysis</span></div>
+            <div class="code-line"><span class="code-keyword">const</span> performanceProfile = {</div>
+            <div class="code-line">&nbsp;&nbsp;lighthouseScore: <span class="code-string">"34/100"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;unusedJS: <span class="code-string">"2.4MB"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;crawlingStatus: <span class="code-string">"Partially Blocked"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;scaleCapacity: <span class="code-string">"Critical Failure"</span></div>
+            <div class="code-line">};</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: High-Performance Front-Ends -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="split-section reverse">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Performance Engineering</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Sub-Second Core Web Vitals with React & Next.js</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We build state-of-the-art client interfaces using React and Next.js. By utilizing Server-Side Rendering (SSR) and Incremental Static Regeneration (ISR), we serve lightning-fast pages that load in under 1 second. This gives you the speed needed to capture search traffic and skyrocket CVR.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Speed Up My Frontend <i class="fas fa-bolt"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// High-performance static routing</span></div>
+            <div class="code-line"><span class="code-keyword">export async function</span> <span class="code-function">getStaticProps</span>() {</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> <span class="code-function">fetchSpeedData</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">return</span> { props: { data }, revalidate: <span class="code-string">10</span> };</div>
+            <div class="code-line">}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Scalable Backends & API Architectures -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Backend Engineering</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Unshakeable Backends & REST/GraphQL APIs</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We build robust, serverless, or containerized backends in Node.js and Python. We structure custom REST and GraphQL APIs that connect front-ends, handle complex computations, and scale effortlessly to millions of requests without hitting bottleneck failures.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Engineer My API Backend <i class="fas fa-server"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// Safe API Rate-limiting configuration</span></div>
+            <div class="code-line"><span class="code-keyword">const</span> rateLimitConfig = {</div>
+            <div class="code-line">&nbsp;&nbsp;windowMs: <span class="code-string">15 * 60 * 1000</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;maxRequests: <span class="code-string">1000</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;message: <span class="code-string">"Too many API requests, please wait."</span></div>
+            <div class="code-line">};</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Custom Database Modeling -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="split-section reverse">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Data Architecture</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Relational Database Design & Security</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Data structure dictates application speed. We design highly optimized relational (PostgreSQL, MySQL) and NoSQL (MongoDB, Redis) databases. We set up query caching, secure database schemas, and data replication networks to ensure instant search queries and 100% data integrity.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Design My Database Architecture <i class="fas fa-database"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// High-performance query indexing</span></div>
+            <div class="code-line"><span class="code-keyword">CREATE INDEX</span> idx_user_transactions</div>
+            <div class="code-line"><span class="code-keyword">ON</span> transactions (user_id, created_at <span class="code-keyword">DESC</span>);</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Headless CMS & Decoupling -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Headless Systems</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Headless CMS & Decoupled Storefronts</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Tear the front-end away from the heavy backend. We implement headless content management systems (Strapi, Sanity, Contentful, and Headless Shopify). Your marketing team edits content easily in a friendly UI, while the site renders statically on Vercel for instant response times.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Decouple My Content <i class="fas fa-project-diagram"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// Sanity.io query client setup</span></div>
+            <div class="code-line"><span class="code-keyword">export const</span> client = <span class="code-function">createClient</span>({</div>
+            <div class="code-line">&nbsp;&nbsp;projectId: <span class="code-string">"sanity-project-id"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;dataset: <span class="code-string">"production"</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;useCdn: <span class="code-keyword">true</span></div>
+            <div class="code-line">});</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Enterprise Portals & SaaS Dashboards -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="split-section reverse">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">SaaS & Portals</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Enterprise Portals & Complex SaaS Dashboards</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We build secure internal tools, customer dashboards, and commercial SaaS portals. We handle multi-tenant authentication (JWT, Auth0, OAuth2), user role mapping, and dynamic interactive charting dashboards that display complex backend calculations elegantly.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Build My Enterprise Portal <i class="fas fa-key"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// Secure JWT Middleware handler</span></div>
+            <div class="code-line"><span class="code-keyword">const</span> token = req.headers.authorization;</div>
+            <div class="code-line"><span class="code-keyword">const</span> decoded = jwt.<span class="code-function">verify</span>(token, process.env.SECRET);</div>
+            <div class="code-line">req.user = decoded;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Third-Party Integrations -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">System Sync</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Seamless Integration: Stripe, CRMs, & ERPs</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            An application shouldn't sit in isolation. We connect your custom build to modern tools. Whether it's complex payment pipelines with Stripe, custom CRM integrations with HubSpot, or synchronizing inventory to enterprise ERPs, we build the webhook links that automate data flow.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Integrate My Systems <i class="fas fa-link"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// Stripe checkout session validation</span></div>
+            <div class="code-line"><span class="code-keyword">const</span> session = <span class="code-keyword">await</span> stripe.checkout.sessions.<span class="code-function">create</span>({</div>
+            <div class="code-line">&nbsp;&nbsp;payment_method_types: [<span class="code-string">"card"</span>],</div>
+            <div class="code-line">&nbsp;&nbsp;line_items: [{ price, quantity: <span class="code-string">1</span> }]</div>
+            <div class="code-line">});</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: DevOps & CI/CD Pipelines -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="split-section reverse">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Deployment Ops</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Automated CI/CD Pipelines & Cloud Hosting</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            No manual file dragging. We build automated GitHub Actions pipelines. When developers push code to the master branch, the suite runs automated testing and deploys the builds securely to AWS, Google Cloud, or Vercel with zero downtime.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Deploy My Application <i class="fab fa-github"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment"># GitHub Actions deployment workflow</span></div>
+            <div class="code-line">on: push: branches: [ master ]</div>
+            <div class="code-line">jobs: deploy: runs-on: ubuntu-latest</div>
+            <div class="code-line">steps: - name: Deploy API: run: serverless deploy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 10: Security & Compliance Architecture -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.2);">Data Security</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Hardened Security & GDPR Compliance</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We secure your codebase against the OWASP Top 10 vulnerabilities. We encrypt sensitive data at rest and in transit, configure CORS policies, configure HTTP headers, and build structures ready for GDPR and CCPA audits.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Secure My Application <i class="fas fa-shield-alt"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// Security header protection middleware</span></div>
+            <div class="code-line">app.<span class="code-function">use</span>(helmet());</div>
+            <div class="code-line">app.<span class="code-function">use</span>(cors({ origin: <span class="code-string">"https://admazic.com"</span> }));</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 11: UI/UX Front-End Engineering -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="split-section reverse">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">UI/UX Engineering</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Mobile-First Custom UI/UX Systems</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            A custom web app shouldn't just run well; it must feel premium. We translate interactive Figma designs into clean, responsive HTML/CSS structures. We construct micro-animations and intuitive hover layouts designed to reduce cognitive load and convert.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">See Design Standards <i class="fas fa-desktop"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">/* Glassmorphism CSS architecture */</span></div>
+            <div class="code-line">.glass {</div>
+            <div class="code-line">&nbsp;&nbsp;background: <span class="code-string">rgba(255, 255, 255, 0.08)</span>;</div>
+            <div class="code-line">&nbsp;&nbsp;backdrop-filter: <span class="code-string">blur(12px)</span>;</div>
+            <div class="code-line">}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 12: QA & Automated Testing -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Quality Assurance</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Robust QA: Unit & End-to-End Testing</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We don't test code in production. We write automated test suites using Jest and Playwright. Every core pipeline—from login auth flow to payment checkouts—is automatically tested on every code push, guaranteeing a bug-free build.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Test My Codebase <i class="fas fa-check-double"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// Playwright E2E checkout test integration</span></div>
+            <div class="code-line"><span class="code-function">test</span>(<span class="code-string">"checkout flow succeeds"</span>, <span class="code-keyword">async</span> ({ page }) => {</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">await</span> page.<span class="code-function">goto</span>(<span class="code-string">"/checkout"</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">await</span> page.<span class="code-function">click</span>(<span class="code-string">"#pay-button"</span>);</div>
+            <div class="code-line">});</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 13: Agile Sprints Roadmap -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="split-section reverse">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Process Roadmap</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Bi-Weekly Agile Sprint Deliverables</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We operate in transparent 2-week milestones. We coordinate tasks in Jira and run Slack syncs. At the end of every sprint, you receive a video walkthrough showing the exact progress, ensuring the project aligns perfectly with your expectations.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Review Sprint Roadmap <i class="fas fa-road"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// Agile sprint velocity calculation</span></div>
+            <div class="code-line"><span class="code-keyword">const</span> sprintVelocity = {</div>
+            <div class="code-line">&nbsp;&nbsp;plannedPoints: <span class="code-string">80</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;completedPoints: <span class="code-string">78</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;sprintEfficiency: <span class="code-string">"97.5%"</span></div>
+            <div class="code-line};</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 14: Post-Launch Maintenance & Support -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Maintenance SLA</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Zero-Downtime Server Maintenance & Support</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            A web application needs active monitoring. We offer SLA support agreements including 24/7 server monitoring, vulnerability patching, library updates, database backups, and emergency hotfixes to ensure zero downtime.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Secure Maintenance Support <i class="fas fa-user-shield"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="code-mockup">
+            <div class="code-header">
+              <span class="code-dot red"></span>
+              <span class="code-dot yellow"></span>
+              <span class="code-dot green"></span>
+            </div>
+            <div class="code-line"><span class="code-comment">// Active server status diagnostic</span></div>
+            <div class="code-line">STATUS: <span class="code-string">"OPERATIONAL"</span></div>
+            <div class="code-line">UPTIME: <span class="code-string">"99.99%"</span></div>
+            <div class="code-line">MEMORY_USAGE: <span class="code-string">"42%"</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 15: The Custom Tech Guarantee -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container text-center" style="max-width: 800px;">
+      <div class="reveal">
+        <i class="fas fa-code-branch" style="font-size: 3.5rem; color: var(--accent-blue); margin-bottom: 20px;"></i>
+        <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2;">Full Source Code Ownership</h2>
+        <p style="color: var(--text-secondary); font-size: 1.25rem; line-height: 1.7; margin-bottom: 30px;">
+          No vendor lock-in. We write clean, commented code conforming to strict standards. Upon project completion, we hand over full GitHub repository access and intellectual property rights. You fully own the digital asset.
+        </p>
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Claim My Source Code <i class="fas fa-arrow-right btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer (Reused) -->
+  <footer class="footer" style="background-color: #0F172A; color: #F8FAFC;">
+    <div class="container footer-grid">
+      <div class="footer-col-logo">
+        <a href="index.html" class="logo footer-logo">
+          <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto; filter: brightness(0) invert(1);">
+        </a>
+        <p class="footer-desc" style="color: #94A3B8;">A growth performance company scaling e-commerce, D2C, B2B, and hospitality brands by 15x using high-velocity metrics marketing.</p>
+        <div class="footer-contact-details" style="color: #94A3B8; font-size: 0.9rem; margin: 15px 0; display: flex; flex-direction: column; gap: 8px;">
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-envelope" style="color: var(--accent-blue);"></i> <a href="mailto:admazicusa@gmail.com" style="color: inherit; text-decoration: none; transition: color 0.2s;">admazicusa@gmail.com</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> <a href="tel:+917861910348" style="color: inherit; text-decoration: none; transition: color 0.2s;">+91 78619 10348</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-map-marker-alt" style="color: var(--accent-blue);"></i> Ahmedabad, India</span>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/Admazicusa" class="social-link" aria-label="Facebook" style="color: #94A3B8;"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/admazicusa" class="social-link" aria-label="Instagram" style="color: #94A3B8;"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/admazic/" class="social-link" aria-label="LinkedIn" style="color: #94A3B8;"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Revenue Funnels</h3>
+        <ul class="footer-links">
+          <li><a href="performance-marketing.html" class="footer-link" style="color: #94A3B8;">Performance Marketing</a></li>
+          <li><a href="google-ads.html" class="footer-link" style="color: #94A3B8;">Google Ads Ecosystem</a></li>
+          <li><a href="meta-ads.html" class="footer-link" style="color: #94A3B8;">Meta Ads & Social</a></li>
+          <li><a href="linkedin-ads.html" class="footer-link" style="color: #94A3B8;">LinkedIn Ads</a></li>
+          <li><a href="cro.html" class="footer-link" style="color: #94A3B8;">Conversion Rate Optimization</a></li>
+          <li><a href="seo.html" class="footer-link" style="color: #94A3B8;">SEO Mastery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Tech & Automations</h3>
+        <ul class="footer-links">
+          <li><a href="custom-web-dev.html" class="footer-link" style="color: #94A3B8;">Custom Web Dev</a></li>
+          <li><a href="custom-crm-dev.html" class="footer-link" style="color: #94A3B8;">Custom CRM Dev</a></li>
+          <li><a href="wordpress.html" class="footer-link" style="color: #94A3B8;">WordPress Dev</a></li>
+          <li><a href="shopify.html" class="footer-link" style="color: #94A3B8;">Shopify Dev</a></li>
+          <li><a href="squarespace.html" class="footer-link" style="color: #94A3B8;">Squarespace Dev</a></li>
+          <li><a href="automations.html" class="footer-link" style="color: #94A3B8;">Workflow Automations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Company</h3>
+        <ul class="footer-links">
+          <li><a href="about.html" class="footer-link" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="portfolio.html" class="footer-link" style="color: #94A3B8;">Case Studies</a></li>
+          <li><a href="careers.html" class="footer-link" style="color: #94A3B8;">Careers</a></li>
+          <li><a href="contact.html" class="footer-link" style="color: #94A3B8;">Contact Us</a></li>
+          </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Growth Insights</h3>
+        <p class="footer-newsletter-text" style="color: #94A3B8;">Receive data-backed growth strategies directly to your inbox weekly.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your business email" required aria-label="Business Email" style="background: #1E293B; border-color: #334155; color: #fff;">
+          <button type="submit" aria-label="Subscribe" style="background: var(--accent-blue);"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom" style="border-top-color: #1E293B; color: #64748B;">
+      <p>&copy; 2026 ADMAZIC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Privacy Policy</a>
+        <a href="terms.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Terms of Service</a>
+        <a href="disclaimer.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Disclaimer</a>
+        <a href="refund.html" class="footer-link" style="color: #64748B;">Refund Policy</a>
+      </div>
+    </div>
+  
+    <p style="margin-top: 20px; font-size: 0.75rem; max-width: 900px; margin-left: auto; margin-right: auto; opacity: 0.7; line-height: 1.6; color: #64748B; text-align: center;">This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+  </footer>
+
+  <script src="assets/js/main.js?v=1.5"></script>
+</body>
+</html>

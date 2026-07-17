@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADMAZIC - Business Workflow & Chat Automation. We integrate APIs, WhatsApp Business, CRMs, and databases to build autonomous operations.">
+  <title>Workflow & Chat Automation Engineering | ADMAZIC</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Unique styling for Automations page to differentiate from previous pages */
+    .auto-container {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      padding: 80px 0;
+      align-items: center;
+    }
+    .auto-container.reverse {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+    .auto-visual-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+    .auto-node-mock {
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 15px;
+      font-size: 0.85rem;
+    }
+    .auto-node-step {
+      background: rgba(31, 83, 151, 0.05);
+      border: 1px solid rgba(31, 83, 151, 0.2);
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .auto-node-step::after {
+      content: "\f0d7";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-secondary);
+    }
+    .auto-node-step:last-child::after {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .auto-container, .auto-container.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+    }
+  </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2241092950059385');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2241092950059385&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body style="background-color: var(--bg-primary);">
+
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto;">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="dropdown mega-dropdown">
+            <a href="#" class="nav-link active">Services <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-left: 5px;"></i></a>
+            <div class="mega-menu-content">
+              <div class="mega-menu-tabs">
+                <button class="mega-tab-btn" data-tab="revenue-funnels"><i class="fas fa-funnel-dollar"></i> Revenue & Sales Funnels</button>
+                <button class="mega-tab-btn active" data-tab="tech-automations"><i class="fas fa-laptop-code"></i> Technology & Automations</button>
+              </div>
+              <div class="mega-menu-panes">
+                <div class="mega-menu-pane" id="revenue-funnels">
+                  <div class="mega-menu-grid">
+                    <a href="performance-marketing.html" class=""><i class="fas fa-chart-line"></i> Performance Marketing</a>
+                    <a href="google-ads.html" class=""><i class="fab fa-google"></i> Google Ads Ecosystem</a>
+                    <a href="meta-ads.html" class=""><i class="fab fa-facebook-f"></i> Meta Ads & Social</a>
+                    <a href="cro.html" class=""><i class="fas fa-percentage"></i> Conversion Rate Optimization</a>
+                    <a href="sales-funnels.html" class=""><i class="fas fa-filter"></i> B2B Sales Funnels</a>
+                    <a href="retention-marketing.html" class=""><i class="fas fa-envelope-open-text"></i> Retention Marketing</a>
+                    <a href="ecommerce.html" class=""><i class="fas fa-shopping-bag"></i> E-commerce</a>
+                    <a href="marketplace.html" class=""><i class="fas fa-store"></i> Marketplace</a>
+                    <a href="seo.html" class=""><i class="fas fa-search"></i> SEO</a>
+                    <a href="linkedin-ads.html" class=""><i class="fab fa-linkedin"></i> LinkedIn Ads</a>
+                  </div>
+                </div>
+                <div class="mega-menu-pane active" id="tech-automations">
+                  <div class="mega-menu-grid">
+                    <a href="custom-web-dev.html" class=""><i class="fas fa-code"></i> Custom Web Dev</a>
+                    <a href="custom-crm-dev.html" class=""><i class="fas fa-users-cog"></i> Custom CRM Dev</a>
+                    <a href="wordpress.html" class=""><i class="fab fa-wordpress"></i> WordPress</a>
+                    <a href="shopify.html" class=""><i class="fab fa-shopify"></i> Shopify</a>
+                    <a href="squarespace.html" class=""><i class="fas fa-cubes"></i> Squarespace</a>
+                    <a href="automations.html" class="active"><i class="fas fa-robot"></i> Automations</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="portfolio.html" class="nav-link">Work</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="desktop-only" style="margin-left: 40px; margin-right: 15px; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 30px;"><a href="tel:+917861910348" style="color: var(--text-primary); font-weight: 700; display: flex; align-items: center; gap: 8px; text-decoration: none;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> +91 78619 10348</a></li>
+          <li class="desktop-only"><a href="free-audit.html" class="btn btn-primary" style="background-color: var(--accent-blue); color: #fff; padding: 12px 24px; font-weight: 700;">I Want to Grow <i class="fas fa-arrow-right btn-icon"></i></a></li>
+          <li class="mobile-only" style="width: 100%;"><a href="free-audit.html" class="btn btn-primary mobile-cta-btn" style="background-color: var(--accent-blue); color: #fff; width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;">I Want to Grow <i class="fas fa-arrow-right"></i></a></li>
+          <li class="mobile-only" style="width: 100%; margin-top: 10px;"><a href="tel:+917861910348" class="btn btn-secondary mobile-cta-btn" style="width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt"></i> Call: +91 78619 10348</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Section 1: Hero Section -->
+  <section class="hero bg-grid" style="position: relative; padding-top: 180px; padding-bottom: 120px;">
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <div class="reveal text-reveal-up" style="margin-bottom: 20px;">
+        <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue); border: 1px solid rgba(31,83,151,0.2);">Enterprise Automation Engineering</span>
+      </div>
+      <h1 class="hero-title reveal text-reveal-up delay-1" style="font-size: 4.5rem; font-weight: 800; max-width: 950px; margin: 0 auto 24px auto; color: var(--text-primary); line-height: 1.1;">
+        Manual Work is a Liability. <br><span class="text-highlight">Automate Your Operations.</span>
+      </h1>
+      <p class="hero-description reveal text-reveal-up delay-2" style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 40px auto; color: var(--text-secondary); line-height: 1.6;">
+        Stop copy-pasting customer records and dialing leads manually. We build custom API pathways, automated WhatsApp flows, and database sync structures to run your operations autonomously.
+      </p>
+      
+      <div class="hero-buttons reveal text-reveal-up delay-3" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Automate My Business <i class="fas fa-robot btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: The Manual Leak (Agitation) -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="auto-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.2);">The Operations Leak</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">The Admin Drag: How Manual Processes Slow down Growth</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            If your team has to export CSV files to sync user accounts, manually type data into CRM lists, or wait hours to forward leads to SDRs, your operational structure is leaking revenue. Manual entries breed human errors, slow down response times, and reduce sales conversion rates. Custom API structures automate these tasks.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Audit My Lead Leakage <i class="fas fa-clock"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="auto-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;"><i class="fas fa-chart-line" style="color: var(--accent-blue);"></i> Daily Task Allocation</h4>
+            <div style="margin-top: 15px; font-size: 0.85rem; color: var(--text-secondary);">
+              - Admin data entries: <span style="color:#EF4444; font-weight:bold;">3.5 hours/day</span>
+              <br>- Coded Workflow: <span style="color:#10B981; font-weight:bold;">0.002 seconds (Instant)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: WhatsApp Business API & Chat Automation -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="auto-container reverse">
+        <div class="reveal">
+          <div class="auto-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 15px;">WhatsApp API Path</h4>
+            <div class="auto-node-mock">
+              <div class="auto-node-step">Customer leaves checkout</div>
+              <div class="auto-node-step">Trigger WhatsApp: Recover Cart</div>
+              <div class="auto-node-step">Option Selected: Apply 10% Discount</div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Chat Automation</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Bespoke WhatsApp Business API Conversational Flows</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Engage leads where they check their phones most. We construct custom WhatsApp Business API connections. We build cart recovery flows, automated support menu guides, and custom order confirmation alerts directly to buyer chat lists.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Launch WhatsApp Flows <i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: CRM Workflow Automation -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="auto-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">CRM Optimization</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">CRM Automated Statuses & Task Reminders</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Reps waste too much time updating pipeline lists. We build automated CRM triggers. When a lead opens a proposal document, the CRM updates their status, creates follow-up alerts, and sends a Slack notification to the deal owner.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Optimize CRM Pipelines <i class="fas fa-tasks"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="auto-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Trigger Status Logic</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Status change webhook detection
+              <br>- Automated representative calendar booking
+              <br>- Auto-built contract file generation
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Customer Retention & LTV Automations -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="auto-container reverse">
+        <div class="reveal">
+          <div class="auto-visual-card" style="text-align:center; padding: 30px;">
+            <i class="fas fa-heartbeat" style="font-size: 3rem; color: #EF4444; margin-bottom: 12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Churn Prevention</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Automated customer health monitoring</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Retention</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Churn-Risk Alert Systems & NPS Survey Routing</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Protect your customer base. We build retention scripts that monitor user usage metrics. If customer login frequency drops, the CRM flags them as "at risk" and triggers automated win-back campaigns.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Protect Customer Retention <i class="fas fa-user-shield"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Lead Scoring & Routing Rules -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="auto-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Lead Sorting</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Conditional Rules & Proprietary Lead Scoring</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Sort high-value prospects from researchers. We code automated scoring rules assessing contact domains, page views, and submission values. High-scoring leads route directly to executive booking channels.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Structure Lead Scoring <i class="fas fa-filter"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="auto-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Scoring Metrics</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Enterprise email detection (+15 pts)
+              <br>- Pricing page view (+10 pts)
+              <br>- Job title validation (+20 pts)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Two-Way Database & ERP Synchronization -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="auto-container reverse">
+        <div class="reveal">
+          <div class="auto-visual-card" style="text-align:center; padding: 30px;">
+            <i class="fas fa-database" style="font-size: 3rem; color: var(--accent-blue); margin-bottom: 12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Database Synchronizer</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Webhooks connecting SQL and Cloud APIs</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">System Sync</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Two-Way Database webhook triggers & ERP links</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Break down data silos. We write API links connecting transactional database tables to ERP portals and shipping endpoints. Changes in warehouse inventories update online store levels instantly.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Sync My Data Assets <i class="fas fa-sync-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Invoicing & Billing Automation -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="auto-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Billing Logic</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Automated Proposal Drafting & Stripe Invoice Triggers</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Eliminate manual document building. We build automation triggers that extract contact variables to generate legal agreements, email signing links, and configure Stripe billing schedules.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Automate My Billing <i class="fas fa-file-invoice-dollar"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="auto-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Billing Data Sync</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Custom PDF creation on deal close
+              <br>- Stripe transaction triggers
+              <br>- Automated accounts reconciliation alert
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Support Ticket Routing Systems -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="auto-container reverse">
+        <div class="reveal">
+          <div class="auto-visual-card" style="text-align:center; padding: 35px 20px;">
+            <i class="fas fa-ticket-alt" style="font-size:3rem; color:var(--accent-blue); margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Support Routing</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Intelligent client ticket assignment</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Client Care</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Intelligent Ticket Assignment & Resolution Triggers</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Resolve queries faster. We configure routing logic for incoming support tickets, assigning items to reps based on category keywords (billing, bug, setup) to reduce response delay times.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Automate Support Tickets <i class="fas fa-user-clock"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 10: Email & SMS Sequence Orchestration -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="auto-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Campaign Setup</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Segmented messaging Triggers & Multi-step Campaigns</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Target prospects based on actions. We code customized sequence integrations. If a lead opens a PDF guide but doesn't book a call, the system triggers targeted follow-up SMS messages.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Configure Email Sequences <i class="fas fa-mail-bulk"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="auto-visual-card" style="text-align:center; padding: 30px;">
+            <i class="fas fa-envelope-open" style="font-size:2.5rem; color: #10B981; margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Targeted Followups</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Direct triggers on user link clicks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 11: Social Media Lead Capture Sync -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="auto-container reverse">
+        <div class="reveal">
+          <div class="auto-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Lead Capture Pipeline</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Meta API lead hook detection
+              <br>- Instant CRM database insertion
+              <br>- Rep Slack notification alerts
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Lead Generation</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Meta & LinkedIn Ad Webhooks to CRM pipelines</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Reduce lead response lag. We build webhook pipelines syncing Facebook and LinkedIn native lead form submissions to your CRM database instantly, triggering immediate SDR follow-ups.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Connect Social Leads <i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 12: Analytics & Performance Tracking Alerts -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="auto-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">KPI Tracking</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Real-Time KPI Reports & Team Slack Notifications</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Stop waiting for monthly reports. We build performance reporting pipelines. Get daily sales, conversion rate stats, and active ad campaign spend alerts directly inside your team's Slack.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Setup KPI Alerts <i class="fab fa-slack"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="auto-visual-card" style="text-align:center; padding:30px;">
+            <i class="fas fa-bell" style="font-size:2.5rem; color:#F59E0B; margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Instant Metric Alerts</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Sales updates pushed directly to chat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 13: Employee Onboarding Automation -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="auto-container reverse">
+        <div class="reveal">
+          <div class="auto-visual-card" style="text-align:center; padding:35px 20px;">
+            <i class="fas fa-user-plus" style="font-size:3rem; color:var(--accent-blue); margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Staff Setup Automation</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Creating accounts & assigning files</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Internal HR</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Team Onboarding: Portal Access & Training assignments</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Set up new employees efficiently. We build triggers that create dashboard profiles, configure email keys, assign guides, and setup communication accounts on contract signing confirmation.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Streamline Team Onboarding <i class="fas fa-users"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 14: System Maintenance & Log Monitoring SLA -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="auto-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Pipeline Care</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Webhook Error Logging & API Updates Monitoring</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Automated pipelines need active care. We monitor API connections, log webhooks error alerts, set up retry-mechanisms, and adjust code properties to support update changes.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Secure My Automation SLA <i class="fas fa-heartbeat"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="auto-visual-card" style="text-align:center; padding: 40px 20px;">
+            <i class="fas fa-shield-alt" style="font-size:3.5rem; color:#10B981; margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Active Logging Checks</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">24/7 endpoint monitoring status</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 15: Full Handover & IP Rights -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container text-center" style="max-width: 800px;">
+      <div class="reveal">
+        <i class="fas fa-code-branch" style="font-size: 3.5rem; color: var(--accent-blue); margin-bottom: 20px;"></i>
+        <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2;">Automation Asset Transfer & API Guides</h2>
+        <p style="color: var(--text-secondary); font-size: 1.25rem; line-height: 1.7; margin-bottom: 30px;">
+          No agency billing lock-in. We build automated routes, map account keys, handover API documentation files, and transfer profile control. You own your system structure assets completely.
+        </p>
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Claim My Automation Assets <i class="fas fa-arrow-right btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer (Reused) -->
+  <footer class="footer" style="background-color: #0F172A; color: #F8FAFC;">
+    <div class="container footer-grid">
+      <div class="footer-col-logo">
+        <a href="index.html" class="logo footer-logo">
+          <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto; filter: brightness(0) invert(1);">
+        </a>
+        <p class="footer-desc" style="color: #94A3B8;">A growth performance company scaling e-commerce, D2C, B2B, and hospitality brands by 15x using high-velocity metrics marketing.</p>
+        <div class="footer-contact-details" style="color: #94A3B8; font-size: 0.9rem; margin: 15px 0; display: flex; flex-direction: column; gap: 8px;">
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-envelope" style="color: var(--accent-blue);"></i> <a href="mailto:admazicusa@gmail.com" style="color: inherit; text-decoration: none; transition: color 0.2s;">admazicusa@gmail.com</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> <a href="tel:+917861910348" style="color: inherit; text-decoration: none; transition: color 0.2s;">+91 78619 10348</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-map-marker-alt" style="color: var(--accent-blue);"></i> Ahmedabad, India</span>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/Admazicusa" class="social-link" aria-label="Facebook" style="color: #94A3B8;"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/admazicusa" class="social-link" aria-label="Instagram" style="color: #94A3B8;"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/admazic/" class="social-link" aria-label="LinkedIn" style="color: #94A3B8;"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Revenue Funnels</h3>
+        <ul class="footer-links">
+          <li><a href="performance-marketing.html" class="footer-link" style="color: #94A3B8;">Performance Marketing</a></li>
+          <li><a href="google-ads.html" class="footer-link" style="color: #94A3B8;">Google Ads Ecosystem</a></li>
+          <li><a href="meta-ads.html" class="footer-link" style="color: #94A3B8;">Meta Ads & Social</a></li>
+          <li><a href="linkedin-ads.html" class="footer-link" style="color: #94A3B8;">LinkedIn Ads</a></li>
+          <li><a href="cro.html" class="footer-link" style="color: #94A3B8;">Conversion Rate Optimization</a></li>
+          <li><a href="seo.html" class="footer-link" style="color: #94A3B8;">SEO Mastery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Tech & Automations</h3>
+        <ul class="footer-links">
+          <li><a href="custom-web-dev.html" class="footer-link" style="color: #94A3B8;">Custom Web Dev</a></li>
+          <li><a href="custom-crm-dev.html" class="footer-link" style="color: #94A3B8;">Custom CRM Dev</a></li>
+          <li><a href="wordpress.html" class="footer-link" style="color: #94A3B8;">WordPress Dev</a></li>
+          <li><a href="shopify.html" class="footer-link" style="color: #94A3B8;">Shopify Dev</a></li>
+          <li><a href="squarespace.html" class="footer-link" style="color: #94A3B8;">Squarespace Dev</a></li>
+          <li><a href="automations.html" class="footer-link" style="color: #94A3B8;">Workflow Automations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Company</h3>
+        <ul class="footer-links">
+          <li><a href="about.html" class="footer-link" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="portfolio.html" class="footer-link" style="color: #94A3B8;">Case Studies</a></li>
+          <li><a href="careers.html" class="footer-link" style="color: #94A3B8;">Careers</a></li>
+          <li><a href="contact.html" class="footer-link" style="color: #94A3B8;">Contact Us</a></li>
+          </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Growth Insights</h3>
+        <p class="footer-newsletter-text" style="color: #94A3B8;">Receive data-backed growth strategies directly to your inbox weekly.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your business email" required aria-label="Business Email" style="background: #1E293B; border-color: #334155; color: #fff;">
+          <button type="submit" aria-label="Subscribe" style="background: var(--accent-blue);"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom" style="border-top-color: #1E293B; color: #64748B;">
+      <p>&copy; 2026 ADMAZIC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Privacy Policy</a>
+        <a href="terms.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Terms of Service</a>
+        <a href="disclaimer.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Disclaimer</a>
+        <a href="refund.html" class="footer-link" style="color: #64748B;">Refund Policy</a>
+      </div>
+    </div>
+  
+    <p style="margin-top: 20px; font-size: 0.75rem; max-width: 900px; margin-left: auto; margin-right: auto; opacity: 0.7; line-height: 1.6; color: #64748B; text-align: center;">This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+  </footer>
+
+  <script src="assets/js/main.js?v=1.5"></script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADMAZIC - Custom Squarespace Development & Design. We bypass template limits with bespoke CSS/JS, Acuity scheduling, Member Areas, and CRM sync.">
+  <title>Custom Squarespace Development & Design | ADMAZIC</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Unique styling for Squarespace page to differentiate from previous pages */
+    .sqsp-container {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      padding: 80px 0;
+      align-items: center;
+    }
+    .sqsp-container.reverse {
+      grid-template-columns: 0.85fr 1.15fr;
+    }
+    .sqsp-visual-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+    .sqsp-css-mock {
+      background: #0F172A;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      padding: 18px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #94A3B8;
+      direction: ltr;
+    }
+    .sqsp-css-mock span {
+      color: #F472B6;
+    }
+    .sqsp-scheduling-block {
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 15px;
+    }
+    .sqsp-time-slot {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(31, 83, 151, 0.08);
+      border: 1px solid rgba(31, 83, 151, 0.2);
+      border-radius: 4px;
+      margin: 4px;
+      font-size: 0.8rem;
+      color: var(--accent-blue);
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .sqsp-container, .sqsp-container.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+    }
+  </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2241092950059385');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2241092950059385&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body style="background-color: var(--bg-primary);">
+
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto;">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="dropdown mega-dropdown">
+            <a href="#" class="nav-link active">Services <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-left: 5px;"></i></a>
+            <div class="mega-menu-content">
+              <div class="mega-menu-tabs">
+                <button class="mega-tab-btn" data-tab="revenue-funnels"><i class="fas fa-funnel-dollar"></i> Revenue & Sales Funnels</button>
+                <button class="mega-tab-btn active" data-tab="tech-automations"><i class="fas fa-laptop-code"></i> Technology & Automations</button>
+              </div>
+              <div class="mega-menu-panes">
+                <div class="mega-menu-pane" id="revenue-funnels">
+                  <div class="mega-menu-grid">
+                    <a href="performance-marketing.html" class=""><i class="fas fa-chart-line"></i> Performance Marketing</a>
+                    <a href="google-ads.html" class=""><i class="fab fa-google"></i> Google Ads Ecosystem</a>
+                    <a href="meta-ads.html" class=""><i class="fab fa-facebook-f"></i> Meta Ads & Social</a>
+                    <a href="cro.html" class=""><i class="fas fa-percentage"></i> Conversion Rate Optimization</a>
+                    <a href="sales-funnels.html" class=""><i class="fas fa-filter"></i> B2B Sales Funnels</a>
+                    <a href="retention-marketing.html" class=""><i class="fas fa-envelope-open-text"></i> Retention Marketing</a>
+                    <a href="ecommerce.html" class=""><i class="fas fa-shopping-bag"></i> E-commerce</a>
+                    <a href="marketplace.html" class=""><i class="fas fa-store"></i> Marketplace</a>
+                    <a href="seo.html" class=""><i class="fas fa-search"></i> SEO</a>
+                    <a href="linkedin-ads.html" class=""><i class="fab fa-linkedin"></i> LinkedIn Ads</a>
+                  </div>
+                </div>
+                <div class="mega-menu-pane active" id="tech-automations">
+                  <div class="mega-menu-grid">
+                    <a href="custom-web-dev.html" class=""><i class="fas fa-code"></i> Custom Web Dev</a>
+                    <a href="custom-crm-dev.html" class=""><i class="fas fa-users-cog"></i> Custom CRM Dev</a>
+                    <a href="wordpress.html" class=""><i class="fab fa-wordpress"></i> WordPress</a>
+                    <a href="shopify.html" class=""><i class="fab fa-shopify"></i> Shopify</a>
+                    <a href="squarespace.html" class="active"><i class="fas fa-cubes"></i> Squarespace</a>
+                    <a href="automations.html" class=""><i class="fas fa-robot"></i> Automations</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="portfolio.html" class="nav-link">Work</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="desktop-only" style="margin-left: 40px; margin-right: 15px; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 30px;"><a href="tel:+917861910348" style="color: var(--text-primary); font-weight: 700; display: flex; align-items: center; gap: 8px; text-decoration: none;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> +91 78619 10348</a></li>
+          <li class="desktop-only"><a href="free-audit.html" class="btn btn-primary" style="background-color: var(--accent-blue); color: #fff; padding: 12px 24px; font-weight: 700;">I Want to Grow <i class="fas fa-arrow-right btn-icon"></i></a></li>
+          <li class="mobile-only" style="width: 100%;"><a href="free-audit.html" class="btn btn-primary mobile-cta-btn" style="background-color: var(--accent-blue); color: #fff; width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;">I Want to Grow <i class="fas fa-arrow-right"></i></a></li>
+          <li class="mobile-only" style="width: 100%; margin-top: 10px;"><a href="tel:+917861910348" class="btn btn-secondary mobile-cta-btn" style="width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt"></i> Call: +91 78619 10348</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Section 1: Hero Section -->
+  <section class="hero bg-grid" style="position: relative; padding-top: 180px; padding-bottom: 120px;">
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <div class="reveal text-reveal-up" style="margin-bottom: 20px;">
+        <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue); border: 1px solid rgba(31,83,151,0.2);">Custom Squarespace Engineering</span>
+      </div>
+      <h1 class="hero-title reveal text-reveal-up delay-1" style="font-size: 4.5rem; font-weight: 800; max-width: 950px; margin: 0 auto 24px auto; color: var(--text-primary); line-height: 1.1;">
+        Template Limitations. <br><span class="text-highlight">Bypassed with Custom Code.</span>
+      </h1>
+      <p class="hero-description reveal text-reveal-up delay-2" style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 40px auto; color: var(--text-secondary); line-height: 1.6;">
+        Stop settling for cookie-cutter Squarespace layouts. We inject custom CSS/JS, customize Acuity scheduling modules, configure Member Areas, and link CRM data to match your brand requirements.
+      </p>
+      
+      <div class="hero-buttons reveal text-reveal-up delay-3" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Build My Squarespace Site <i class="fas fa-cubes btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: The Template Constraint (Agitation) -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="sqsp-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.2);">The Design Wall</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">The Grid Wall: Why Standard Squarespace Themes Feel Restrictive</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Fluid Engine has improved editing, but standard layouts still lock you out of custom hover animations, complex B2B booking paths, and multi-step lead captures. The result? A website that looks like every other template in your industry, losing CSuite brand authority. We write the code overrides to make it unique.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Break Free of Templates <i class="fas fa-expand"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="sqsp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;"><i class="fas fa-exclamation-triangle" style="color: #F59E0B;"></i> Squarespace Blockages</h4>
+            <div style="font-size:0.85rem; line-height:1.6; color:var(--text-secondary);">
+              - Fixed section height restrictions
+              <br>- Locked desktop/mobile layouts
+              <br>- Rigid built-in form structures
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Bespoke CSS & JS Injections -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="sqsp-container reverse">
+        <div class="reveal">
+          <div class="sqsp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Custom CSS Override</h4>
+            <div class="sqsp-css-mock">
+              <span>.header-nav-item</span> {
+              <br>&nbsp;&nbsp;transition: <span>all 0.3s ease</span>;
+              <br>&nbsp;&nbsp;letter-spacing: <span>0.05em</span>;
+              <br>}
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Custom Stylesheet</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Bespoke CSS Styling & JavaScript Interactions</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We override the default Fluid Engine styles. By injecting custom stylesheet files and script code, we create interactive hover states, branded font faces, clean popups, and smooth viewport scroll reveals that match your brand layout specifications.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Request Styling Blueprint <i class="fas fa-palette"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Custom Code Block Integrations -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="sqsp-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Advanced Elements</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Coded Blocks for Galleries, Accordions, & Tabs</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Standard text blocks and images can feel static. We construct custom code block configurations displaying responsive galleries, interactive comparison maps, tabular content sections, and customized pricing tables to reduce page scroll-depth fatigue.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Develop Custom Code Blocks <i class="fas fa-code"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="sqsp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Code Block Injection</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Custom HTML layout elements
+              <br>- JS-powered tab triggers
+              <br>- SVG graphical shapes
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Acuity Scheduling Customization -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="sqsp-container reverse">
+        <div class="reveal">
+          <div class="sqsp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Booking Engine</h4>
+            <div class="sqsp-scheduling-block">
+              <span style="font-size:0.75rem; color:var(--text-secondary);">Select Time:</span>
+              <br>
+              <div class="sqsp-time-slot">09:00 AM</div>
+              <div class="sqsp-time-slot">11:30 AM</div>
+              <div class="sqsp-time-slot">02:00 PM</div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Scheduling</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Acuity Scheduling Modules & Form Customizations</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Booking calls shouldn't look like an external redirect. We integrate and customize Acuity Scheduling widgets. We design custom intake forms, structure pricing flows, and configure redirect paths to match your branding.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Optimize My Scheduling Funnel <i class="fas fa-calendar-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Squarespace Commerce Optimization -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="sqsp-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">E-Commerce</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Squarespace Commerce: CVR-Driven Overhauls</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Standard store layout grids lack urgency elements. We customize shop collection grids, optimize product details layouts, build custom buy buttons, and setup payment flows to maximize shopping CVR.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Scale My Squarespace Shop <i class="fas fa-shopping-bag"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="sqsp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Commerce Overrides</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Custom Add to Cart buttons
+              <br>- Sticky product detail cards
+              <br>- Customized review feeds
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Member Areas & Courses -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="sqsp-container reverse">
+        <div class="reveal">
+          <div class="sqsp-visual-card" style="text-align:center; padding: 30px;">
+            <i class="fas fa-user-lock" style="font-size: 3rem; color: var(--accent-blue); margin-bottom: 12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Subscriber Portal</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Private courses & forums setup</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Member Areas</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Member Areas Setup & Digital Course Funnels</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Monetize your knowledge base natively. We construct Squarespace Member Areas and digital course panels. We setup subscription access levels, build video lessons, and configure secure checkout paywalls.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Setup Member Portals <i class="fas fa-graduation-cap"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Third-Party CRM Integrations -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="sqsp-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Integrations</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Lead Generation Sync: HubSpot & Mailchimp</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            A contact form must pass lead details securely. We link Squarespace forms natively or via custom webhook codes to email engines (Mailchimp, ActiveCampaign) and sales tools (HubSpot).
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Sync My Leads <i class="fas fa-database"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="sqsp-visual-card" style="text-align:center;">
+            <i class="fas fa-exchange-alt" style="font-size: 2.5rem; color: var(--accent-blue); margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Automated Data Sync</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Form data pushed to HubSpot API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Squarespace SEO Optimization -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="sqsp-container reverse">
+        <div class="reveal">
+          <div class="sqsp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">SEO Health Checklist</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Custom canonical URL configurations
+              <br>- Clean sitemap page generation
+              <br>- 301 URL redirect implementations
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Search Rankings</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Canonical Settings, Redirect Maps & Indexation</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Bypass default search setup restrictions. We customize structural search settings, write sitemap directives, write custom JSON-LD schemas, and configure 301 redirect tables to preserve search rankings.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Audit My Squarespace SEO <i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 10: Aesthetic UI/UX Injections -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="sqsp-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">UI/UX Design</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Custom Navigation Drawers & Sticky Headers</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We customize the user navigation. We code customized sticky headers, interactive mobile menus, and branded buttons, ensuring a premium brand presentation that stands out.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Enhance My Site Design <i class="fas fa-desktop"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="sqsp-visual-card" style="text-align:center; padding: 35px 20px;">
+            <i class="fas fa-sliders-h" style="font-size:3rem; color: var(--accent-blue); margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Visual Adjustments</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Bespoke navigation animation sets</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 11: Email Campaigns & Newsletter Sync -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="sqsp-container reverse">
+        <div class="reveal">
+          <div class="sqsp-visual-card" style="text-align:center; padding:30px;">
+            <i class="fas fa-paper-plane" style="font-size:2.5rem; color:var(--accent-blue); margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Newsletter Sync</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Automated buyer segment tagging</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Email Systems</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Lead Generation widgets & Automated Newsletters</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Build your marketing database natively. We configure Squarespace newsletter popups, link submission widgets to client segments, and configure automated welcome triggers.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Automate My Newsletters <i class="fas fa-envelope-open-text"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 12: Blogging & Content Design -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="sqsp-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Blogging</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Custom Article Layouts & Related Post Sliders</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Standard blogging layout feeds can look linear. We build custom article page formats, related post sliders, and filtering widgets designed to increase reader scroll depth.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Design My Blog Layout <i class="fas fa-pen-nib"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="sqsp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Blog Components</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Custom category grids
+              <br>- Dynamic reading progress indicators
+              <br>- Customized share interfaces
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 13: Domain & DNS Migrations -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="sqsp-container reverse">
+        <div class="reveal">
+          <div class="sqsp-visual-card" style="text-align:center; padding:35px 20px;">
+            <i class="fas fa-server" style="font-size:3rem; color:var(--accent-blue); margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">DNS Records Management</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Safe CNAME & MX record transitions</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Domain Setup</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Domain Transfers & DNS Record Management</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Domain setups require exact records routing. We handle domain configurations, point CNAME/A records securely, link Google Workspace setups, and secure SSL certifications.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Migrate My Domain Safely <i class="fas fa-network-wired"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 14: Theme Care Support SLA -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="sqsp-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Support SLA</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Site Content support & Uptime Diagnostics</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We offer site care services. We handle layout troubleshooting, custom code adjustments, image optimization updates, and monitor domain configurations.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Secure My Squarespace SLA <i class="fas fa-heartbeat"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="sqsp-visual-card" style="text-align:center; padding: 40px 20px;">
+            <i class="fas fa-check-circle" style="font-size:3.5rem; color:#10B981; margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Active Care Systems</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">24/7 custom script monitoring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 15: Full Project Handover & Training -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container text-center" style="max-width: 800px;">
+      <div class="reveal">
+        <i class="fas fa-door-open" style="font-size: 3.5rem; color: var(--accent-blue); margin-bottom: 20px;"></i>
+        <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2;">Video Guides & Clean Code Handover</h2>
+        <p style="color: var(--text-secondary); font-size: 1.25rem; line-height: 1.7; margin-bottom: 30px;">
+          No agency lock-in. We hand over the Squarespace dashboard, deliver walkthrough tutorials for your team, and clean code document records. You are in complete control of your digital asset.
+        </p>
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Own My Digital Asset <i class="fas fa-arrow-right btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer (Reused) -->
+  <footer class="footer" style="background-color: #0F172A; color: #F8FAFC;">
+    <div class="container footer-grid">
+      <div class="footer-col-logo">
+        <a href="index.html" class="logo footer-logo">
+          <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto; filter: brightness(0) invert(1);">
+        </a>
+        <p class="footer-desc" style="color: #94A3B8;">A growth performance company scaling e-commerce, D2C, B2B, and hospitality brands by 15x using high-velocity metrics marketing.</p>
+        <div class="footer-contact-details" style="color: #94A3B8; font-size: 0.9rem; margin: 15px 0; display: flex; flex-direction: column; gap: 8px;">
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-envelope" style="color: var(--accent-blue);"></i> <a href="mailto:admazicusa@gmail.com" style="color: inherit; text-decoration: none; transition: color 0.2s;">admazicusa@gmail.com</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> <a href="tel:+917861910348" style="color: inherit; text-decoration: none; transition: color 0.2s;">+91 78619 10348</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-map-marker-alt" style="color: var(--accent-blue);"></i> Ahmedabad, India</span>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/Admazicusa" class="social-link" aria-label="Facebook" style="color: #94A3B8;"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/admazicusa" class="social-link" aria-label="Instagram" style="color: #94A3B8;"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/admazic/" class="social-link" aria-label="LinkedIn" style="color: #94A3B8;"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Revenue Funnels</h3>
+        <ul class="footer-links">
+          <li><a href="performance-marketing.html" class="footer-link" style="color: #94A3B8;">Performance Marketing</a></li>
+          <li><a href="google-ads.html" class="footer-link" style="color: #94A3B8;">Google Ads Ecosystem</a></li>
+          <li><a href="meta-ads.html" class="footer-link" style="color: #94A3B8;">Meta Ads & Social</a></li>
+          <li><a href="linkedin-ads.html" class="footer-link" style="color: #94A3B8;">LinkedIn Ads</a></li>
+          <li><a href="cro.html" class="footer-link" style="color: #94A3B8;">Conversion Rate Optimization</a></li>
+          <li><a href="seo.html" class="footer-link" style="color: #94A3B8;">SEO Mastery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Tech & Automations</h3>
+        <ul class="footer-links">
+          <li><a href="custom-web-dev.html" class="footer-link" style="color: #94A3B8;">Custom Web Dev</a></li>
+          <li><a href="custom-crm-dev.html" class="footer-link" style="color: #94A3B8;">Custom CRM Dev</a></li>
+          <li><a href="wordpress.html" class="footer-link" style="color: #94A3B8;">WordPress Dev</a></li>
+          <li><a href="shopify.html" class="footer-link" style="color: #94A3B8;">Shopify Dev</a></li>
+          <li><a href="squarespace.html" class="footer-link" style="color: #94A3B8;">Squarespace Dev</a></li>
+          <li><a href="automations.html" class="footer-link" style="color: #94A3B8;">Workflow Automations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Company</h3>
+        <ul class="footer-links">
+          <li><a href="about.html" class="footer-link" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="portfolio.html" class="footer-link" style="color: #94A3B8;">Case Studies</a></li>
+          <li><a href="careers.html" class="footer-link" style="color: #94A3B8;">Careers</a></li>
+          <li><a href="contact.html" class="footer-link" style="color: #94A3B8;">Contact Us</a></li>
+          </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Growth Insights</h3>
+        <p class="footer-newsletter-text" style="color: #94A3B8;">Receive data-backed growth strategies directly to your inbox weekly.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your business email" required aria-label="Business Email" style="background: #1E293B; border-color: #334155; color: #fff;">
+          <button type="submit" aria-label="Subscribe" style="background: var(--accent-blue);"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom" style="border-top-color: #1E293B; color: #64748B;">
+      <p>&copy; 2026 ADMAZIC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Privacy Policy</a>
+        <a href="terms.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Terms of Service</a>
+        <a href="disclaimer.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Disclaimer</a>
+        <a href="refund.html" class="footer-link" style="color: #64748B;">Refund Policy</a>
+      </div>
+    </div>
+  
+    <p style="margin-top: 20px; font-size: 0.75rem; max-width: 900px; margin-left: auto; margin-right: auto; opacity: 0.7; line-height: 1.6; color: #64748B; text-align: center;">This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+  </footer>
+
+  <script src="assets/js/main.js?v=1.5"></script>
+</body>
+</html>

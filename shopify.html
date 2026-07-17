@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ADMAZIC - Custom Shopify Development & Scaling. Coded Liquid themes, custom Shopify Plus checkouts, headless commerce, and ERP integrations.">
+  <title>Custom Shopify Development & Scaling | ADMAZIC</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=1.5">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Unique styling for Shopify page to differentiate from previous pages */
+    .shopify-container {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      padding: 80px 0;
+      align-items: center;
+    }
+    .shopify-container.reverse {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+    .shp-visual-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+    .shp-liquid-mock {
+      background: #0F172A;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      padding: 18px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #94A3B8;
+      direction: ltr;
+    }
+    .shp-cart-drawer {
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 15px;
+    }
+    .shp-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--glass-border);
+      font-size: 0.85rem;
+    }
+    .shp-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    .shp-badge.success { background: rgba(16, 185, 129, 0.1); color: #10B981; }
+
+    @media (max-width: 768px) {
+      .shopify-container, .shopify-container.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+    }
+  </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2241092950059385');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2241092950059385&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body style="background-color: var(--bg-primary);">
+
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto;">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li class="dropdown mega-dropdown">
+            <a href="#" class="nav-link active">Services <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-left: 5px;"></i></a>
+            <div class="mega-menu-content">
+              <div class="mega-menu-tabs">
+                <button class="mega-tab-btn" data-tab="revenue-funnels"><i class="fas fa-funnel-dollar"></i> Revenue & Sales Funnels</button>
+                <button class="mega-tab-btn active" data-tab="tech-automations"><i class="fas fa-laptop-code"></i> Technology & Automations</button>
+              </div>
+              <div class="mega-menu-panes">
+                <div class="mega-menu-pane" id="revenue-funnels">
+                  <div class="mega-menu-grid">
+                    <a href="performance-marketing.html" class=""><i class="fas fa-chart-line"></i> Performance Marketing</a>
+                    <a href="google-ads.html" class=""><i class="fab fa-google"></i> Google Ads Ecosystem</a>
+                    <a href="meta-ads.html" class=""><i class="fab fa-facebook-f"></i> Meta Ads & Social</a>
+                    <a href="cro.html" class=""><i class="fas fa-percentage"></i> Conversion Rate Optimization</a>
+                    <a href="sales-funnels.html" class=""><i class="fas fa-filter"></i> B2B Sales Funnels</a>
+                    <a href="retention-marketing.html" class=""><i class="fas fa-envelope-open-text"></i> Retention Marketing</a>
+                    <a href="ecommerce.html" class=""><i class="fas fa-shopping-bag"></i> E-commerce</a>
+                    <a href="marketplace.html" class=""><i class="fas fa-store"></i> Marketplace</a>
+                    <a href="seo.html" class=""><i class="fas fa-search"></i> SEO</a>
+                    <a href="linkedin-ads.html" class=""><i class="fab fa-linkedin"></i> LinkedIn Ads</a>
+                  </div>
+                </div>
+                <div class="mega-menu-pane active" id="tech-automations">
+                  <div class="mega-menu-grid">
+                    <a href="custom-web-dev.html" class=""><i class="fas fa-code"></i> Custom Web Dev</a>
+                    <a href="custom-crm-dev.html" class=""><i class="fas fa-users-cog"></i> Custom CRM Dev</a>
+                    <a href="wordpress.html" class=""><i class="fab fa-wordpress"></i> WordPress</a>
+                    <a href="shopify.html" class="active"><i class="fab fa-shopify"></i> Shopify</a>
+                    <a href="squarespace.html" class=""><i class="fas fa-cubes"></i> Squarespace</a>
+                    <a href="automations.html" class=""><i class="fas fa-robot"></i> Automations</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="portfolio.html" class="nav-link">Work</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="desktop-only" style="margin-left: 40px; margin-right: 15px; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 30px;"><a href="tel:+917861910348" style="color: var(--text-primary); font-weight: 700; display: flex; align-items: center; gap: 8px; text-decoration: none;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> +91 78619 10348</a></li>
+          <li class="desktop-only"><a href="free-audit.html" class="btn btn-primary" style="background-color: var(--accent-blue); color: #fff; padding: 12px 24px; font-weight: 700;">I Want to Grow <i class="fas fa-arrow-right btn-icon"></i></a></li>
+          <li class="mobile-only" style="width: 100%;"><a href="free-audit.html" class="btn btn-primary mobile-cta-btn" style="background-color: var(--accent-blue); color: #fff; width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;">I Want to Grow <i class="fas fa-arrow-right"></i></a></li>
+          <li class="mobile-only" style="width: 100%; margin-top: 10px;"><a href="tel:+917861910348" class="btn btn-secondary mobile-cta-btn" style="width: 100%; text-align: center; justify-content: center; display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt"></i> Call: +91 78619 10348</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Section 1: Hero Section -->
+  <section class="hero bg-grid" style="position: relative; padding-top: 180px; padding-bottom: 120px;">
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <div class="reveal text-reveal-up" style="margin-bottom: 20px;">
+        <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue); border: 1px solid rgba(31,83,151,0.2);">Custom Shopify Storefront Engineering</span>
+      </div>
+      <h1 class="hero-title reveal text-reveal-up delay-1" style="font-size: 4.5rem; font-weight: 800; max-width: 950px; margin: 0 auto 24px auto; color: var(--text-primary); line-height: 1.1;">
+        No Bloated Templates. <br>Just <span class="text-highlight">Custom Liquid Commerce.</span>
+      </h1>
+      <p class="hero-description reveal text-reveal-up delay-2" style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 40px auto; color: var(--text-secondary); line-height: 1.6;">
+        Stop stacking monthly Shopify app fees that crash your site speed. We build custom Liquid themes, optimize Shopify Plus checkout extensions, and engineer API integrations to maximize conversion rate.
+      </p>
+      
+      <div class="hero-buttons reveal text-reveal-up delay-3" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Build My Custom Storefront <i class="fab fa-shopify btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: The App Bloat Trap (Agitation) -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="shopify-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.2);">The App Trap</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">The App Bloat Trap: Paying Monthly to Slow Down Your Store</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Installing 25 different Shopify apps for reviews, upsells, trust badges, and slide-out carts injects thousands of lines of external JavaScript. This kills your mobile page speed, reduces your conversion rate, and racks up massive monthly subscription costs. We code these features directly into your theme.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Audit My App Bloat <i class="fas fa-search-dollar"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="shp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;"><i class="fas fa-chart-line" style="color: var(--accent-blue);"></i> Monthly App Overhead</h4>
+            <div style="margin-top: 15px; font-size: 0.85rem; color: var(--text-secondary);">
+              - 22 Installed Apps: <span style="color:#EF4444; font-weight:bold;">$1,200/mo recurring</span>
+              <br>- Coded Native Logic: <span style="color:#10B981; font-weight:bold;">$0/mo recurring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Custom Liquid & Schema Development -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="shopify-container reverse">
+        <div class="reveal">
+          <div class="shp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Liquid Template Engine</h4>
+            <div class="shp-liquid-mock">
+              <span style="color:#64748B;">{% if product.available %}</span>
+              <br>&nbsp;&nbsp;&lt;span class="in-stock"&gt;Available&lt;/span&gt;
+              <br><span style="color:#64748B;">{% endif %}</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Liquid Coded</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Bespoke Liquid Code & Custom Settings Schema</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We don't buy generic theme files. We code clean Shopify themes using custom Liquid files and flexible settings schemas. This allows your team to edit product layouts in the customizer without adding rendering script bloat.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Request Liquid Audit <i class="fas fa-file-code"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Checkout Extensibility (Shopify Plus) -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="shopify-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Shopify Plus</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Checkout Extensibility & Custom Checkout UI</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            For Shopify Plus merchants, we customize checkouts using Shopify Functions and checkout UI extensions. We add custom delivery instructions, post-purchase cross-sells, dynamic loyalty points, and custom trust badges.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Optimize My Checkout <i class="fas fa-cash-register"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="shp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Checkout Upsell Extension</h4>
+            <div class="shp-item-row" style="border: 1px dashed var(--glass-border); padding: 12px; border-radius: 6px;">
+              <span>Add matching accessories (+ $15)</span>
+              <span class="shp-badge success">Add</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Headless Commerce -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="shopify-container reverse">
+        <div class="reveal">
+          <div class="shp-visual-card" style="text-align:center; padding: 30px;">
+            <div style="display:flex; justify-content:space-around; align-items:center;">
+              <div><i class="fab fa-shopify" style="font-size: 3rem; color: #95BF47;"></i><br><span style="font-size:0.75rem; color:var(--text-secondary);">Shopify Storefront API</span></div>
+              <div><i class="fas fa-arrows-alt-h" style="color:var(--text-secondary);"></i></div>
+              <div><i class="fab fa-react" style="font-size: 3rem; color: #61DAFB;"></i><br><span style="font-size:0.75rem; color:var(--text-secondary);">Next.js React</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Headless Commerce</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Headless Architecture: Next.js & Shopify Storefront API</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Decouple your shop data entirely from the themes engine. We build next-gen headless commerce storefronts using React and Next.js, syncing data cleanly with the Shopify Storefront API for instant page loads.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Deploy Headless Shopify <i class="fas fa-project-diagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: CRO UI Assets -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="shopify-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Conversion Rate</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Frictionless CRO: Slide-out Carts & Sticky ATC</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Remove check-out hurdles to increase sales. We code native slide-out mini-carts, quick buy buttons on collections, and sticky Add-to-Cart buttons that stay in view while scrolling product details.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Boost My Conversion Rate <i class="fas fa-shopping-basket"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="shp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Interactive Cart Drawer</h4>
+            <div class="shp-cart-drawer">
+              <div class="shp-item-row"><span>Leather Shoes</span> <span>$120</span></div>
+              <div style="text-align:right; margin-top:10px; font-weight:bold; font-size:0.85rem; color:var(--text-primary);">Subtotal: $120</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Custom App Development -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="shopify-container reverse">
+        <div class="reveal">
+          <div class="shp-visual-card" style="text-align:center; padding: 30px;">
+            <i class="fas fa-puzzle-piece" style="font-size: 3rem; color: var(--accent-blue); margin-bottom: 12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Bespoke app development</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Hosted securely on Node/AWS</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">App Development</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Private App Customization & Custom Shipping Rules</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            When standard apps don't fit your business requirements, we build private custom apps. Whether it's complex wholesale pricing logic, bespoke product bundlers, or custom shipping calculation parameters, we build the API endpoints.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Build Private Shopify App <i class="fas fa-cogs"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: ERP & Warehouse Sync -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="shopify-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">System Sync</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">ERP & Warehouse API Integrations: NetSuite, SAP</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Scale your back-office logistics alongside your marketing. We connect Shopify Plus webhooks directly to ERP systems (NetSuite, SAP, Microsoft Dynamics) to sync inventories, orders, and fulfillment updates.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Sync My Warehouse <i class="fas fa-warehouse"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="shp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">Warehouse Data Pipeline</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Real-time stock webhook updates
+              <br>- Automated batch inventory sync
+              <br>- Fast order status validation
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Shopify POS Setup -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="shopify-container reverse">
+        <div class="reveal">
+          <div class="shp-visual-card" style="text-align:center; padding: 35px 20px;">
+            <i class="fas fa-store" style="font-size:3rem; color:var(--accent-blue); margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Omnichannel Retail</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Connecting physical retail registers</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">POS Integration</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Omnichannel Sales Setup: Shopify POS</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Connect your physical retail setups with your online storefront. We customize Shopify POS layouts, integrate hardware, configure multi-location inventories, and setup unified gift card programs.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Connect Shopify POS <i class="fas fa-cash-register"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 10: Shopify SEO Optimization -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="shopify-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Organic Growth</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Product Schema, Collection Structure & Indexing</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Shopify handles standard SEO okay, but customized themes need exact schema mapping. We inject structured JSON-LD schemas, configure clean canonical routing, and speed up collection page indexing.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Boost Organic Rankings <i class="fas fa-search"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="shp-visual-card" style="text-align:center; padding: 30px;">
+            <i class="fas fa-code" style="font-size:2.5rem; color: #10B981; margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Rich Snippet Integration</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Product JSON-LD structured schema</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 11: Shopify B2B wholesale channels -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="shopify-container reverse">
+        <div class="reveal">
+          <div class="shp-visual-card">
+            <h4 style="color: var(--text-primary); margin-bottom: 12px;">B2B Account Features</h4>
+            <div style="font-size:0.85rem; line-height: 1.6; color: var(--text-secondary);">
+              - Wholesale custom price sheets
+              <br>- Net payment terms configurations
+              <br>- Company profile buyer validation
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">B2B Scale</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">B2B wholesale Portal setups & custom pricing</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Sell to retail and wholesale clients on a single Shopify store. We set up wholesale pricing lists, Net 30/60 payment validation rules, and configure buyer account validation portals.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Scale B2B Wholesale <i class="fas fa-handshake"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 12: High-Converting Subscriptions -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="shopify-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Recurring Sales</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Recurring Sales Integration: Recharge, Loop</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Subscription services build recurring cashflow. We integrate subscription billing structures (Recharge, Loop, Bold) using Shopify's native checkout API, making recurring orders simple.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Set Up Subscription Models <i class="fas fa-undo-alt"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="shp-visual-card" style="text-align:center; padding:30px;">
+            <i class="fas fa-sync" style="font-size:2.5rem; color:#635BFF; margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Native Subscription Billing</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Direct integration in Shopify Checkout</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 13: Catalog Migration -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container">
+      <div class="shopify-container reverse">
+        <div class="reveal">
+          <div class="shp-visual-card" style="text-align:center; padding:35px 20px;">
+            <i class="fas fa-exchange-alt" style="font-size:3rem; color:var(--accent-blue); margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Zero Data Loss migration</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">Transferring users, orders, and listings</span>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Replatforming</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Replatforming: Catalog, User, & SEO migrations</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            Replatforming can be stressful. We migrate catalogs, customers, transaction files, and active SEO path records from WooCommerce, Magento, or custom code systems to Shopify with zero data loss.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--accent-blue); color: #fff; padding: 12px 28px;">Migrate My Catalog <i class="fas fa-file-import"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 14: Shopify SLA Maintenance -->
+  <section class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
+    <div class="container">
+      <div class="shopify-container">
+        <div class="reveal">
+          <span class="section-tag" style="background: rgba(31,83,151,0.1); color: var(--accent-blue);">Store Support</span>
+          <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin: 15px 0 20px 0; line-height: 1.2;">Monthly Theme Upgrades & Security Monitoring</h2>
+          <p style="color: var(--text-secondary); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px;">
+            We offer recurring support maintenance services for high-volume stores. We handle checkout audit tracking, core Liquid updates, theme patches, and continuous site metrics monitoring.
+          </p>
+          <a href="free-audit.html" class="btn btn-primary" style="background: var(--text-primary); color: #fff; padding: 12px 28px;">Secure Shopify SLA <i class="fas fa-hands-helping"></i></a>
+        </div>
+        <div class="reveal">
+          <div class="shp-visual-card" style="text-align:center; padding: 40px 20px;">
+            <i class="fas fa-shield-alt" style="font-size:3.5rem; color:#10B981; margin-bottom:12px;"></i>
+            <h5 style="color:var(--text-primary); margin:0;">Active Store Security</h5>
+            <span style="font-size:0.75rem; color:var(--text-secondary);">24/7 critical checkout monitoring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 15: Lifetime Code Ownership -->
+  <section class="section" style="background-color: var(--bg-primary);">
+    <div class="container text-center" style="max-width: 800px;">
+      <div class="reveal">
+        <i class="fas fa-code-branch" style="font-size: 3.5rem; color: var(--accent-blue); margin-bottom: 20px;"></i>
+        <h2 style="color: var(--text-primary); font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2;">Full Source Code Handover</h2>
+        <p style="color: var(--text-secondary); font-size: 1.25rem; line-height: 1.7; margin-bottom: 30px;">
+          No vendor lock-in. We build custom Liquid themes to clean standards. Upon completion, we hand over full GitHub repository assets and design documentation. You own your Shopify site completely.
+        </p>
+        <a href="free-audit.html" class="btn btn-primary glow-btn" style="padding: 18px 40px; font-size: 1.1rem; background-color: #DC2626; color: #fff;">Own My Store Code <i class="fas fa-arrow-right btn-icon"></i></a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer (Reused) -->
+  <footer class="footer" style="background-color: #0F172A; color: #F8FAFC;">
+    <div class="container footer-grid">
+      <div class="footer-col-logo">
+        <a href="index.html" class="logo footer-logo">
+          <img src="assets/images/logo_cropped.png" alt="ADMAZIC Logo" style="width: 150px; max-width: 100%; height: auto; filter: brightness(0) invert(1);">
+        </a>
+        <p class="footer-desc" style="color: #94A3B8;">A growth performance company scaling e-commerce, D2C, B2B, and hospitality brands by 15x using high-velocity metrics marketing.</p>
+        <div class="footer-contact-details" style="color: #94A3B8; font-size: 0.9rem; margin: 15px 0; display: flex; flex-direction: column; gap: 8px;">
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-envelope" style="color: var(--accent-blue);"></i> <a href="mailto:admazicusa@gmail.com" style="color: inherit; text-decoration: none; transition: color 0.2s;">admazicusa@gmail.com</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-phone-alt" style="color: var(--accent-blue);"></i> <a href="tel:+917861910348" style="color: inherit; text-decoration: none; transition: color 0.2s;">+91 78619 10348</a></span>
+          <span style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-map-marker-alt" style="color: var(--accent-blue);"></i> Ahmedabad, India</span>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/Admazicusa" class="social-link" aria-label="Facebook" style="color: #94A3B8;"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/admazicusa" class="social-link" aria-label="Instagram" style="color: #94A3B8;"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/admazic/" class="social-link" aria-label="LinkedIn" style="color: #94A3B8;"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Revenue Funnels</h3>
+        <ul class="footer-links">
+          <li><a href="performance-marketing.html" class="footer-link" style="color: #94A3B8;">Performance Marketing</a></li>
+          <li><a href="google-ads.html" class="footer-link" style="color: #94A3B8;">Google Ads Ecosystem</a></li>
+          <li><a href="meta-ads.html" class="footer-link" style="color: #94A3B8;">Meta Ads & Social</a></li>
+          <li><a href="linkedin-ads.html" class="footer-link" style="color: #94A3B8;">LinkedIn Ads</a></li>
+          <li><a href="cro.html" class="footer-link" style="color: #94A3B8;">Conversion Rate Optimization</a></li>
+          <li><a href="seo.html" class="footer-link" style="color: #94A3B8;">SEO Mastery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Tech & Automations</h3>
+        <ul class="footer-links">
+          <li><a href="custom-web-dev.html" class="footer-link" style="color: #94A3B8;">Custom Web Dev</a></li>
+          <li><a href="custom-crm-dev.html" class="footer-link" style="color: #94A3B8;">Custom CRM Dev</a></li>
+          <li><a href="wordpress.html" class="footer-link" style="color: #94A3B8;">WordPress Dev</a></li>
+          <li><a href="shopify.html" class="footer-link" style="color: #94A3B8;">Shopify Dev</a></li>
+          <li><a href="squarespace.html" class="footer-link" style="color: #94A3B8;">Squarespace Dev</a></li>
+          <li><a href="automations.html" class="footer-link" style="color: #94A3B8;">Workflow Automations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Company</h3>
+        <ul class="footer-links">
+          <li><a href="about.html" class="footer-link" style="color: #94A3B8;">About Us</a></li>
+          <li><a href="portfolio.html" class="footer-link" style="color: #94A3B8;">Case Studies</a></li>
+          <li><a href="careers.html" class="footer-link" style="color: #94A3B8;">Careers</a></li>
+          <li><a href="contact.html" class="footer-link" style="color: #94A3B8;">Contact Us</a></li>
+          </ul>
+      </div>
+      <div>
+        <h3 class="footer-col-title" style="color: #fff;">Growth Insights</h3>
+        <p class="footer-newsletter-text" style="color: #94A3B8;">Receive data-backed growth strategies directly to your inbox weekly.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your business email" required aria-label="Business Email" style="background: #1E293B; border-color: #334155; color: #fff;">
+          <button type="submit" aria-label="Subscribe" style="background: var(--accent-blue);"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="container footer-bottom" style="border-top-color: #1E293B; color: #64748B;">
+      <p>&copy; 2026 ADMAZIC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Privacy Policy</a>
+        <a href="terms.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Terms of Service</a>
+        <a href="disclaimer.html" class="footer-link" style="color: #64748B; margin-right: 15px;">Disclaimer</a>
+        <a href="refund.html" class="footer-link" style="color: #64748B;">Refund Policy</a>
+      </div>
+    </div>
+  
+    <p style="margin-top: 20px; font-size: 0.75rem; max-width: 900px; margin-left: auto; margin-right: auto; opacity: 0.7; line-height: 1.6; color: #64748B; text-align: center;">This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+  </footer>
+
+  <script src="assets/js/main.js?v=1.5"></script>
+</body>
+</html>
