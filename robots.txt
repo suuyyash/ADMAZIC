@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow private/confirmation pages
+Disallow: /thank-you
+
+# Sitemap reference
+Sitemap: https://admazic.com/sitemap.xml

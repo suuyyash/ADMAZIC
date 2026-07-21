@@ -302,10 +302,11 @@ ul {
 /* --- Hero Section --- */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
-  padding-top: 140px;
+  padding-top: 170px;
+  padding-bottom: 100px;
   background: radial-gradient(circle at 10% 20%, rgba(22, 30, 48, 0.3) 0%, transparent 40%),
               radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 45%);
 }
@@ -2175,6 +2176,7 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .hero { padding-top: 140px !important; padding-bottom: 60px !important; }
   .hero-title { font-size: 2.5rem !important; }
   .hero-description { font-size: 1.1rem !important; padding: 0 15px; }
   .hero-buttons { flex-direction: column; width: 100%; padding: 0 20px; }
