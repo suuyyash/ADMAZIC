@@ -560,7 +560,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Deferred Tracking Scripts to Improve Mobile PageSpeed -->
   <script>
-    setTimeout(function() {
+    let trackersLoaded = false;
+    function loadTrackers() {
+      if (trackersLoaded) return;
+      trackersLoaded = true;
+      
       // Google Tag Manager
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -589,7 +593,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '2241092950059385');
       fbq('track', 'PageView');
-    }, 3500);
+      
+      // Cleanup event listeners
+      ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(evt => {
+        window.removeEventListener(evt, loadTrackers);
+      });
+    }
+    
+    // Load trackers on first interaction
+    ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'].forEach(evt => {
+      window.addEventListener(evt, loadTrackers, { passive: true, once: true });
+    });
+    
+    // Fallback if no interaction after 8 seconds
+    setTimeout(loadTrackers, 8000);
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2241092950059385&ev=PageView&noscript=1"/></noscript>
 
